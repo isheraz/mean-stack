@@ -1,0 +1,25 @@
+{
+  "name": "mean-stack",
+  "version": "0.1.0",
+  "description": "This is a list of training exercises to get new people familar to nodejs and understand the basics of MEAN Stack with RxJs, unit testing and typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isheraz/mean-stack.git"
+  },
+  "keywords": [
+    "mean-stack",
+    "rxjs",
+    "typescript",
+    "unit-test"
+  ],
+  "author": "Sheraz Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isheraz/mean-stack/issues"
+  },
+  "homepage": "https://github.com/isheraz/mean-stack#readme"
+}
