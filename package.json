@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/isheraz/mean-stack/issues"
   },
-  "homepage": "https://github.com/isheraz/mean-stack#readme"
+  "homepage": "https://github.com/isheraz/mean-stack#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "husky": "^4.3.6",
+    "sequelize": "^6.3.5"
+  }
 }
