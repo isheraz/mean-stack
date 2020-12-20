@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "isheraz",
+      "name": "Sheraz Ahmed",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/12581068?v=4",
+      "profile": "https://github.com/isheraz",
+      "contributions": [
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "mean-stack",
+  "projectOwner": "isheraz",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
