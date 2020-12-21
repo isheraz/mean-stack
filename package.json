@@ -4,7 +4,7 @@
   "description": "This is a list of training exercises to get new people familar to nodejs and understand the basics of MEAN Stack with RxJs, unit testing and typescript",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "set NODE_ENV=dev && node index.js"
   },
   "repository": {
     "type": "git",
