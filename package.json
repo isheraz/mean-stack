@@ -4,7 +4,8 @@
   "description": "This is a list of training exercises to get new people familar to nodejs and understand the basics of MEAN Stack with RxJs, unit testing and typescript",
   "main": "index.js",
   "scripts": {
-    "test": "npm run start"
+    "test": "npm run start",
+    "dev": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/isheraz/mean-stack#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "sequelize": "^6.3.5"
@@ -30,7 +32,7 @@
   "devDependencies": {
     "husky": "^4.3.6"
   },
-  "husky" : {
+  "husky": {
     "precommit": "echo 'working'"
   }
 }
