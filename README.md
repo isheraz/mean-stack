@@ -1,6 +1,9 @@
 # Mean Stack Traing
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Table of Contents
@@ -25,11 +28,12 @@ future projects that are based on the similar dev technologies and SRS related b
 ## Getting Started <a name="getting_started"></a>
 
 Please follow the instructions
+
 #### Setting up on localhost
 
 - Create a database in postgres `js_cms`
 - Create a `.env` file that stores all the credentials for postgres database.
-- Create a entry in `etc/hosts` for hosts `127.0.0.1  jscms.test` and a subdomain entry for host `127.0.0.1 subdomain.jscms.test`
+- Create a entry in `etc/hosts` for hosts `127.0.0.1 jscms.test` and a subdomain entry for host `127.0.0.1 subdomain.jscms.test`
 - Run `npm i`
 - Run the sequelize migrations by running `npm run migrations` for initial install
 - Run `npm run dev` to start the server listening to port `6000`
@@ -59,6 +63,7 @@ We will cover the following lessons in the project.
 To get you familiar with KANBAN/SCRUM we will be using Zenhub. Please Install [Zenhub Extension](https://www.zenhub.com/extension) and use with github
 account. Each person would work on a issue/ticket with branch named < worktype >/< ticket-title-ticket# > e.g feature/authentication-123, hotfix/login-token-refresh-325, enhancement/bearer-token-hash-improvement-333. The person will be reponsible for moving the cards to correct location, Cards in Review/Q.A will be reviewed, answered and set for revision or merging.
 Code will be reviewed in a single commint per issue. Please read rewriting git history [here](https://www.atlassian.com/git/tutorials/rewriting-history). PR against staging after rebasing with latest staging and resolving all conflicts. Code will be directly merged to master or staging by owner or person incharge.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -74,6 +79,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
