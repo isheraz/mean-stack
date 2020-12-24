@@ -1,20 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { Pool } = require('pg');
-const configuration = require('./constants');
+const express = require("express");
+const bodyParser = require('body-parser')
+const app     = express();
+const role  = require('./routes/role');
+const permission  = require('./routes/permission');
+const eventRoute = require('./routes/eventRoute')(express.Router())
 
-const app = express();
-const role = require('./routes/role');
-const permission = require('./routes/permission');
-const userRoutes = require('./routes/userRoutes');
+const { checkPermission, checkRole } = require('./basicAuth')
 
-const { checkPermission, checkRole } = require('./basicAuth');
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-const port = process.env.PORT || 6000;
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+const port    = process.env.PORT || 6000;
 require('dotenv').config();
-
+ 
+app.get('/event',eventRoute);
 app.use('/role', checkRole('Super-Admin'), role);
 app.use('/permission', permission);
 app.use(userRoutes);
