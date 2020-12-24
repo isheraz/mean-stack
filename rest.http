@@ -26,4 +26,4 @@ Content-Type: application/json
     "date": "2020-12-23T05:46:01.776Z"
 }
 ###
-DELETE http://localhost:6000/event/deleteEvent/1
+DELETE http://localhost:6000/event/deleteEvent/10
