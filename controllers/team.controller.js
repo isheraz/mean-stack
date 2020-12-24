@@ -1,4 +1,4 @@
-const Team = require('../models/Team');
+const Team = require('../models').Team;
 
 const defaultResponse= require('../utils/defaultResponse');
 const constants= require('../utils/constants');
@@ -25,6 +25,7 @@ exports.saveTeam = async (req, res) => {
         } else
            defaultResponse().error(constants.DATA_NOT_FOUND, res, responseStatus.ERROR);
     } catch (exception) {
+        console.log(exception.message)
         defaultResponse().error({message:exception.message}, res, responseStatus.ERROR)
     }
 }
