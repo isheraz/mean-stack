@@ -1,54 +1,27 @@
 {
   "name": "mean-stack",
   "version": "0.1.0",
-  "description": "This is a list of training exercises to get new people familar to nodejs and understand the basics of MEAN Stack with RxJs, unit testing and typescript",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/isheraz/mean-stack.git"
+    
   },
   "keywords": [
-    "mean-stack",
-    "rxjs",
-    "typescript",
-    "unit-test"
+   
   ],
-  "author": "Sheraz Ahmed",
+  "author": "Rohail Butt",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/isheraz/mean-stack/issues"
-  },
-  "homepage": "https://github.com/isheraz/mean-stack#readme",
+
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "express-validator": "^6.8.1",
-    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5"
-  },
-  "devDependencies": {
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
-    "prettier": "2.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "eslint --fix",
-      "git add"
-    ]
   }
 }
