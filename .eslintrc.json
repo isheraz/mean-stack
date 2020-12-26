@@ -1,11 +1,23 @@
-
 {
     "env": {
-      "browser": true
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
     },
-   "extends": ["airbnb-base"],
-    "plugins": [],
+    "extends": "airbnb-base",
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
     "rules": {
-
+        "comma-dangle":"off",
+        "comma-spacing":"off",
+        "space-in-parens":"warn",
+        "no-multi-spaces":"warn",
+        "no-console":"off",
+        "no-var":"warn",
+        "no-const-assign":"off",
+        "no-constant-condition":"off",
+        "no-new-object":"warn",
+        "no-unused-vars":"off"
     }
-  }
+}
