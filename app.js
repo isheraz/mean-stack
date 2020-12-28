@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
-
 const app = express();
 const role = require('./routes/role');
 const permission = require('./routes/permission');
@@ -11,7 +10,6 @@ const userRoutes = require('./routes/user');
 const eventRoute = require('./routes/eventRoute')(express.Router());
 const blog = require('./routes/blog');
 // const { checkPermission, checkRole } = require('./_helpers/basicAuth');
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
