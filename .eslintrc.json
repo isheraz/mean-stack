@@ -6,6 +6,6 @@
    "extends": ["airbnb-base"],
     "plugins": [],
     "rules": {
-
+      
     }
   }
