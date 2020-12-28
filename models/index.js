@@ -1,24 +1,42 @@
-// const fs = require('fs');
-// const path = require('path');
-// const Sequelize = require('sequelize');
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
 
-// fs.readdirSync(__dirname)
-//   .filter(
-//     (file) =>
-//       file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
-//   )
-//   .forEach((file) => {
-//     const model = import(file)(sequelize, Sequelize.DataTypes);
-//     db[model.name] = model;
-//   });
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const config = require(`../config/config.json`)[env];
 
-// Object.keys(db).forEach((modelName) => {
-//   if (db[modelName].associate) {
-//     db[modelName].associate(db);
-//   }
-// });
+const db = {};
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
 
-// db.sequelize = sequelize;
-// db.Sequelize = Sequelize;
+db.Blog = require('./blog')(sequelize, Sequelize.DataTypes);
+db.Permission = require('./permission')(sequelize, Sequelize.DataTypes);
+db.Role = require('./role')(sequelize, Sequelize.DataTypes);
+db.RoleHasPermission = require('./rolehaspermission')(
+  sequelize,
+  Sequelize.DataTypes
+);
+db.User = require('./user')(sequelize, Sequelize.DataTypes);
+db.UserRole = require('./userrole')(sequelize, Sequelize.DataTypes);
 
-// module.exports = db;
+// Accociation
+db.User.associate(db);
+db.UserRole.associate(db);
+db.Blog.associate(db);
+db.Permission.associate(db);
+db.RoleHasPermission.associate(db);
+db.Role.associate(db);
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+module.exports = db;
