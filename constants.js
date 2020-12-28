@@ -1,14 +1,28 @@
+require('dotenv').config();
 
-const PG_HOST = process.env.PG_HOST || '127.0.0.1';
-const PG_PORT = process.env.PG_PORT || 5432;
-const DB_USERNAME = process.env.DB_USERNAME || admin;
-const DB_PASSWORD = process.env.DB_PASSWORD || admin;
-const DATABASE = process.env.DATABASE || js_cms;
-
-module.exports={
-    PG_HOST,
-    PG_PORT,
-    DB_USERNAME,
-    DB_PASSWORD,
-    DATABASE
-  }
+exports.module = {
+  local: {
+    host: process.env.PG_HOST || 'jscms.test',
+    port: process.env.PG_PORT || 45775,
+    user: process.env.DB_USERNAME || 'admin',
+    password: process.env.DB_PASSWORD || 'admin',
+    database: process.env.DATABASE || 'jscms',
+    dialect: process.env.DIALECT || 'postgres',
+  },
+  staging: {
+    host: process.env.PG_HOST || 'jscms.test',
+    port: process.env.PG_PORT || 45775,
+    user: process.env.DB_USERNAME || 'admin',
+    password: process.env.DB_PASSWORD || 'admin',
+    database: process.env.DATABASE || 'jscms',
+    dialect: process.env.DIALECT || 'postgres',
+  },
+  production: {
+    host: process.env.PG_HOST || 'jscms.test',
+    port: process.env.PG_PORT || 45775,
+    user: process.env.DB_USERNAME || 'admin',
+    password: process.env.DB_PASSWORD || 'admin',
+    database: process.env.DATABASE || 'jscms',
+    dialect: process.env.DIALECT || 'postgres',
+  },
+};

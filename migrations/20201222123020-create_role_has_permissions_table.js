@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, DataType) => {
     /**
@@ -13,24 +11,24 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataType.INTEGER
+        type: DataType.INTEGER,
       },
       roleId: {
         allowNull: false,
-        type: DataType.INTEGER
+        type: DataType.INTEGER,
       },
       permissionId: {
         allowNull: false,
-        type: DataType.INTEGER
+        type: DataType.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: DataType.DATE
+        type: DataType.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataType.DATE
-      }
+        type: DataType.DATE,
+      },
     });
   },
 
@@ -42,5 +40,5 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
     await queryInterface.dropTable('RoleHasPermissions');
-  }
+  },
 };
