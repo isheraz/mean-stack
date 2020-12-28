@@ -7,7 +7,6 @@ exports.module = {
     user: process.env.DB_USERNAME || 'admin',
     password: process.env.DB_PASSWORD || 'admin',
     database: process.env.DATABASE || 'jscms',
-    dialect: process.env.DIALECT || 'postgres',
   },
   staging: {
     host: process.env.PG_HOST || 'jscms.test',
@@ -15,7 +14,6 @@ exports.module = {
     user: process.env.DB_USERNAME || 'admin',
     password: process.env.DB_PASSWORD || 'admin',
     database: process.env.DATABASE || 'jscms',
-    dialect: process.env.DIALECT || 'postgres',
   },
   production: {
     host: process.env.PG_HOST || 'jscms.test',
@@ -23,7 +21,6 @@ exports.module = {
     user: process.env.DB_USERNAME || 'admin',
     password: process.env.DB_PASSWORD || 'admin',
     database: process.env.DATABASE || 'jscms',
-    dialect: process.env.DIALECT || 'postgres',
   },
   DefaultRoleId: 5,
 };
