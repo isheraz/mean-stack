@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: async (queryInterface, DataType) => {
     await queryInterface.createTable('Roles', {
@@ -6,22 +5,22 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataType.INTEGER
+        type: DataType.INTEGER,
       },
       name: {
-        type: DataType.STRING
+        type: DataType.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: DataType.DATE
+        type: DataType.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataType.DATE
-      }
+        type: DataType.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Roles');
-  }
+  },
 };

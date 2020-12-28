@@ -1,11 +1,37 @@
-
 {
     "env": {
-      "browser": true
+        "browser": true
     },
-   "extends": ["airbnb-base"],
-    "plugins": [],
+    "extends": [
+        "airbnb-base",
+        "eslint-config-prettier"
+    ],
+    "plugins": ["eslint-plugin-prettier"],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "ignorePatterns": [
+        "node_modules/",
+        "frontend/"
+    ],
     "rules": {
-      
+        "comma-dangle":"off",
+        "comma-spacing":"off",
+        "space-in-parens":"warn",
+        "no-multi-spaces":"warn",
+        "no-console":"off",
+        "no-var":"warn",
+        "no-const-assign":"off",
+        "no-constant-condition":"off",
+        "no-new-object":"warn",
+        "no-unused-vars":"off",
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "key-spacing": ["error", { "beforeColon": false }],
+        "prettier/prettier": [
+            "error",
+            {
+              "singleQuote": true
+            }
+          ]
     }
-  }
+}

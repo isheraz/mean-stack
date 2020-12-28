@@ -1,27 +1,20 @@
-const express = require('express');
-const { Pool } = require('pg');
+// import { config } from './constants';
 
-const userRoutes = require('./routes/userRoutes');
-const eventRoute = require('./routes/eventRoute')(express.Router());
-const constants = require('./constants');
+// const express = require('express');
+// const { Pool } = require('pg');
 
-const app = express();
-// using userRoutes
-app.use(userRoutes);
-app.use('/event', eventRoute);
+// const userRoutes = require('./routes/userRoutes');
 
-const pool = new Pool({
-  user: constants.DB_USERNAME,
-  host: constants.PG_HOST,
-  database: constants.DATABASE,
-  password: constants.DB_PASSWORD,
-  port: constants.PG_PORT,
-});
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res);
-  pool.end();
-});
+// const app = express();
 
-app.listen(6003, () => {
-  console.log('server is up and running!');
-});
+// app.use(userRoutes);
+
+// const pool = new Pool(config.local);
+// pool.query('SELECT NOW()', (err, res) => {
+//   console.log(err, res);
+//   pool.end();
+// });
+
+// app.createServer.listen(6000, () => {
+//   console.log('server is up and running!');
+// });

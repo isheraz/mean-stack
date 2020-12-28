@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Role extends Model {
     /**
@@ -14,21 +12,23 @@ module.exports = (sequelize, DataTypes) => {
       Role.belongsToMany(models.Permission, {
         through: 'RoleHasPermissions',
         as: 'permissions',
-        foreignKey: 'roleId'
+        foreignKey: 'roleId',
       });
 
       Role.hasOne(models.UserRole, {
         foreignKey: 'roleId',
         as: 'role',
       });
-
     }
-  };
-  Role.init({
-    name: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Role',
-  });
+  }
+  Role.init(
+    {
+      name: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: 'Role',
+    }
+  );
   return Role;
 };
