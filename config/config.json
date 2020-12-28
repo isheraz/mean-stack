@@ -1,8 +1,13 @@
 {
   "development": {
     "username": "postgres",
+<<<<<<< HEAD
     "password": "12345",
     "database": "js_cms",
+=======
+    "password": "root",
+    "database": "new_js_cms",
+>>>>>>> muzamil brach is merged
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
