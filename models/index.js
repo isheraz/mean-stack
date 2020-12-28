@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const Sequelize = require('sequelize');
 
-const basename = path.basename(__filename);
+// const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(`../config/config.json`)[env];
 
@@ -28,6 +28,8 @@ db.RoleHasPermission = require('./rolehaspermission')(
 );
 db.UserRole = require('./userrole')(sequelize, Sequelize.DataTypes);
 db.User = require('./user')(sequelize, Sequelize.DataTypes);
+db.Team = require('./Team')(sequelize, Sequelize.DataTypes);
+db.Comment = require('./Comment')(sequelize, Sequelize.DataTypes);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

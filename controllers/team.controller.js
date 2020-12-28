@@ -1,10 +1,10 @@
-const Team = require('../models/Team');
+const { Team } = require('../models');
 
 const defaultResponse = require('../utils/defaultResponse');
 const constants = require('../utils/constants');
 const responseStatus = require('../utils/responseStatus');
 
-exports.getTeam = async (req, res) => {
+exports.getTeam = async (_req, res) => {
   try {
     const team = await Team.findAll();
     if (team) {
@@ -55,6 +55,7 @@ exports.saveTeam = async (req, res) => {
         responseStatus.ERROR
       );
   } catch (exception) {
+    console.log(exception.message);
     defaultResponse().error(
       { message: exception.message },
       res,

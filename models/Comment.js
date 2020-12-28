@@ -1,27 +1,26 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Team extends Model {
+  class Comment extends Model {
     static associate() {}
   }
-  Team.init(
+  Comment.init(
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      name: DataTypes.STRING,
-      members: DataTypes.STRING,
+      text: DataTypes.STRING,
       createdAt: { type: DataTypes.DATE, defaultValue: Date.now },
       updatedAt: { type: DataTypes.DATE, defaultValue: Date.now },
       deletedAt: { type: DataTypes.DATE },
     },
     {
       sequelize,
-      modelName: 'Team',
+      modelName: 'Comment',
       paranoid: true,
     }
   );
-  return Team;
+  return Comment;
 };
