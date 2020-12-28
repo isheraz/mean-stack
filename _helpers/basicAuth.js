@@ -1,11 +1,12 @@
-const { Role } = require('./models');
-const { User } = require('./models');
-const { UserRole } = require('./models');
-const { Permission } = require('./models');
+const { Role } = require('../models');
+const { User } = require('../models');
+const { UserRole } = require('../models');
+const { Permission } = require('../models');
 
-const checkPermission = (permission) => async (_req, res, next) => {
+const checkPermission = (userPermission) => async (req, res, next) => {
+  const userId = req.header('userId');
   const user = await User.findOne({
-    where: { id: 1 },
+    where: { id: userId },
     include: [
       {
         model: UserRole,
@@ -30,20 +31,25 @@ const checkPermission = (permission) => async (_req, res, next) => {
   });
   const permissions = role ? role.permissions : null;
 
-  const isPermission = permissions.some(
-    (permittedUser) => permittedUser.name === permission
-  );
+  // if (typeof userPermission === 'string') {
+  //   userPermission[] = [userPermission];
+  // }
+  // return res.status(403).send(permissions);
 
-  if (!isPermission)
-    return res.status(403).send('You have no access to this page.');
+  // const isPermission = permissions.some(
+  //   (permittedUser) => permittedUser.name === permission
+  // );
+  // if (!isPermission)
+  //   return res.status(403).send('You have no access to this page.');
 
   next();
   return true;
 };
 
-const checkRole = (userRole) => async (_req, res, next) => {
+const checkRole = (userRole) => async (req, res, next) => {
+  const userId = req.header('userId');
   const user = await User.findOne({
-    where: { id: 1 },
+    where: { id: userId },
     include: [
       {
         model: UserRole,
