@@ -8,6 +8,7 @@ const role = require('./routes/role');
 const permission = require('./routes/permission');
 const user = require('./routes/user');
 const blog = require('./routes/blog');
+const team = require('./routes/team.routes');
 const { checkPermission, checkRole } = require('./_helpers/basicAuth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,6 +21,7 @@ app.use('/role', role);
 app.use('/permission', permission);
 app.use('/blog', blog);
 app.use('/', user);
+app.use('/team', team);
 
 // const pool = new Pool({
 //   user: 'admin',
