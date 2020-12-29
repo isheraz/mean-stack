@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 exports.module = {
   local: {
     host: process.env.PG_HOST || 'jscms.test',
@@ -20,4 +22,5 @@ exports.module = {
     password: process.env.DB_PASSWORD || 'admin',
     database: process.env.DATABASE || 'jscms',
   },
+  DefaultRoleId: 5,
 };
