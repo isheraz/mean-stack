@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 
 const { compare } = require('bcrypt');
-const { userModel } = require('../models');
+const { User } = require('../models');
 
 const customRegisterValidation = async (req, res) => {
   // check body validations
@@ -11,15 +11,13 @@ const customRegisterValidation = async (req, res) => {
   }
 
   // check if email already exists
-  const checkEmail = await userModel.findOne({
+  const checkEmail = await User.findOne({
     where: { email: req.body.email },
   });
   if (checkEmail != null) {
     return res.status(400).json({ message: 'Email Already Exists' });
   }
-  return res
-    .status(200)
-    .json({ message: 'All registeration parameters validated' });
+  return false;
 };
 
 const customLoginValidation = async (req, res) => {
@@ -27,7 +25,7 @@ const customLoginValidation = async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const user = await userModel.findOne({ where: { email: req.body.email } });
+  const user = await User.findOne({ where: { email: req.body.email } });
   if (user == null) {
     return res.status(400).json({
       message: 'User does not exists with this email',
@@ -44,7 +42,7 @@ const customLoginValidation = async (req, res) => {
   });
 };
 
-exports.module = {
+module.exports = {
   customRegisterValidation,
   customLoginValidation,
 };
