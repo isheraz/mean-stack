@@ -1,3 +1,4 @@
+
 const Sequelize = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
@@ -33,6 +34,7 @@ db.Blog.associate(db);
 db.Permission.associate(db);
 db.RoleHasPermission.associate(db);
 db.Role.associate(db);
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 module.exports = db;
