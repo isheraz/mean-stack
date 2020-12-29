@@ -1,8 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+
 const Sequelize = require('sequelize');
 
-const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(`../config/config.json`)[env];
 
@@ -28,7 +26,7 @@ db.RoleHasPermission = require('./rolehaspermission')(
 );
 db.User = require('./user')(sequelize, Sequelize.DataTypes);
 db.UserRole = require('./userrole')(sequelize, Sequelize.DataTypes);
-
+db.Event = require('./event')(sequelize, Sequelize.DataTypes);
 // Accociation
 db.User.associate(db);
 db.UserRole.associate(db);

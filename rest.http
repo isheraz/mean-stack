@@ -1,0 +1,30 @@
+GET http://127.0.0.1:6003/event/getAllEvents
+Content-Type: application/json
+
+###
+POST http://localhost:6003/event/createEvent
+Content-Type: application/json
+
+{ 
+      
+    "name":"test",
+    "venue":"Lahore",
+        "date": "2020-12-23T05:46:01.776Z"
+
+}
+
+###
+GET http://localhost:6000/event/getEvent/
+
+###
+
+PUT http://localhost:6000/event/updateEvent/72
+Content-Type: application/json
+
+{
+    "name": "Quaid Day",
+    "venue":"Lahore, Punjab Pakistan",
+    "date": "2020-12-23T05:46:01.776Z"
+}
+###
+DELETE http://localhost:6003/event/deleteEvent/jhf
