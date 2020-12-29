@@ -20,7 +20,7 @@ const port = process.env.PORT || 6000;
 // Define Routes
 app.use('/role', role);
 app.use('/permission', permission);
-app.use('/event',eventRoute);
+app.use('/event', eventRoute);
 app.use(userRoutes);
 
 // const pool = new Pool(configuration.module.local);
@@ -29,7 +29,6 @@ app.use(userRoutes);
 //   console.log(err, res);
 //   pool.end();
 // });
-
 
 app.listen(port, () => {
   console.log(`Server running on port localhost:${port}`);

@@ -6,7 +6,7 @@ exports.module = {
     port: process.env.PG_PORT || 45775,
     user: process.env.DB_USERNAME || 'admin',
     password: process.env.DB_PASSWORD || 'admin',
-    database: process.env.DATABASE || 'jscms'
+    database: process.env.DATABASE || 'jscms',
   },
   staging: {
     host: process.env.PG_HOST || 'jscms.test',
