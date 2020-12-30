@@ -5,7 +5,6 @@ const userController = require('../controllers/user.controller');
 router.post(
   '/register',
   [body('email').isEmail(), body('password').isLength({ min: 6 })],
-  userController.register
 );
 router.post(
   '/login',
