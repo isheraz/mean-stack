@@ -1,13 +1,9 @@
-{
+export default {
   "development": {
-<<<<<<< HEAD
-    "username": "postgres",
-    "password": "root",
-=======
     "username": "admin",
-    "password": "admin",
->>>>>>> set controllers to typescript
-    "database": "js_cms",
+    "password": "123",
+    "database": "basic_node",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {

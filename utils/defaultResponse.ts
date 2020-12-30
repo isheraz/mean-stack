@@ -1,12 +1,11 @@
-module.exports = () => {
-  const resultErrorObject = {
+const resultErrorObject : any = {
     error: false,
-    message: '',
-  };
+    message: ''
+};
 
-  const resultSuccessObject = {};
+const resultSuccessObject : any = {};
 
-  return {
+  export default {
     error: (error, res, status = 500) => {
       resultErrorObject.error = true;
       resultErrorObject.message = error.message;
@@ -26,4 +25,3 @@ module.exports = () => {
       res.status(status).json(resultSuccessObject);
     },
   };
-};
