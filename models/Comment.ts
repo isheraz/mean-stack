@@ -1,31 +1,28 @@
-const { Model } = require('sequelize');
+import { Model } from 'sequelize';
 
-module.exports = (sequelize, DataTypes) => {
-  class Team extends Model {
-    static associate(models) {
-      Team.hasMany(models.User, {
-        foreignKey: 'teamId',
-        as: 'Members',
-      });
-    }
+export default (sequelize, DataTypes) => {
+  class Comment extends Model {
+    static associate() {}
   }
-  Team.init(
+  Comment.init(
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      name: DataTypes.STRING,
+      text: DataTypes.STRING,
+      blogId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       createdAt: { type: DataTypes.DATE, defaultValue: Date.now },
       updatedAt: { type: DataTypes.DATE, defaultValue: Date.now },
       deletedAt: { type: DataTypes.DATE },
     },
     {
       sequelize,
-      modelName: 'Team',
+      modelName: 'Comment',
       paranoid: true,
     }
   );
-  return Team;
+  return Comment;
 };

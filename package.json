@@ -2,9 +2,9 @@
   "name": "mean-stack",
   "version": "0.1.0",
   "description": "This is a list of training exercises to get new people familar to nodejs and understand the basics of MEAN Stack with RxJs, unit testing and typescript",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "dev": "set NODE_ENV=dev && node app.js",
+    "dev": "set NODE_ENV=dev && tsc && node dist/app.js",
     "lint": "eslint ./ --ext=js,ts",
     "lint:frontend": "eslint ./frontend --ext=js,ts --ignore-pattern node_modules/",
     "lint:fix": "eslint ./ --ext=js,ts --fix=true --ignore-pattern node_modules/",

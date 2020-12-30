@@ -1,9 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { Pool } = require('pg');
-const cors = require('cors');
-const configuration = require('./constants');
-const routes = require('./routes/index');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import routes from './routes/index';
 
 const app = express();
 
@@ -26,8 +24,6 @@ app.use((req, res, next) => {
   res.header('Cache-Control', 'max-age=0');
   next();
 });
-
-const pool = new Pool(configuration.module.local);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
