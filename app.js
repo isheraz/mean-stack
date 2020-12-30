@@ -3,14 +3,9 @@ const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 const cors = require('cors');
 const configuration = require('./constants');
+const routes = require('./routes/index');
 
 const app = express();
-const role = require('./routes/role');
-const permission = require('./routes/permission');
-const userRoutes = require('./routes/user');
-const team = require('./routes/team.routes');
-const comments = require('./routes/comment.routes');
-const blog = require('./routes/blog');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -20,13 +15,7 @@ require('dotenv').config();
 app.use(cors());
 
 app.use(express.json());
-
-app.use('/role', role);
-app.use('/permission', permission);
-app.use('/team', team);
-app.use('/comment', comments);
-app.use('/blog', blog);
-app.use(userRoutes);
+app.use('/', routes);
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
