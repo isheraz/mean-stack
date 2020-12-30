@@ -3,8 +3,9 @@
     "username": "postgres",
     "password": "12345",
     "database": "js_cms",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "admin",
+    "password": "123",
+    "database": "basic_node"
   },
   "test": {
     "username": "root",

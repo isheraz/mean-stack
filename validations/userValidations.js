@@ -1,21 +1,25 @@
 const { validationResult } = require('express-validator');
-
 const { compare } = require('bcrypt');
 const { User } = require('../models');
+const defaultResponse = require('../utils/defaultResponse');
+const constants = require('../utils/constants');
+const responseStatus = require('../utils/responseStatus');
 
 const customRegisterValidation = async (req, res) => {
-  // check body validations
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    defaultResponse().error({ message: errors }, res, responseStatus.ERROR);
   }
 
-  // check if email already exists
   const checkEmail = await User.findOne({
     where: { email: req.body.email },
   });
   if (checkEmail != null) {
-    return res.status(400).json({ message: 'Email Already Exists' });
+    defaultResponse().error(
+      { message: constants.EMAIL_EXIST },
+      res,
+      responseStatus.ERROR
+    );
   }
   return false;
 };
@@ -23,23 +27,29 @@ const customRegisterValidation = async (req, res) => {
 const customLoginValidation = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    defaultResponse().error({ message: errors }, res, responseStatus.ERROR);
   }
   const user = await User.findOne({ where: { email: req.body.email } });
   if (user == null) {
-    return res.status(400).json({
-      message: 'User does not exists with this email',
-    });
+    defaultResponse().error(
+      { message: constants.USER_NOTFOUND },
+      res,
+      responseStatus.ERROR
+    );
   }
   if (await compare(req.body.password, user.password)) {
-    return res.json({
-      message: 'User Successfully logged in',
-      data: user,
-    });
+    defaultResponse().success(
+      constants.USER_LOGGEDIN,
+      user,
+      res,
+      responseStatus.SUCCESS
+    );
   }
-  return res.json({
-    message: 'Your email or password is incorrect',
-  });
+  defaultResponse().error(
+    { message: constants.PASSOWRD_ERROR },
+    res,
+    responseStatus.ERROR
+  );
 };
 
 module.exports = {
