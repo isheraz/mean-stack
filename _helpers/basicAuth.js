@@ -31,17 +31,6 @@ const checkPermission = (userPermission) => async (req, res, next) => {
   });
   const permissions = role ? role.permissions : null;
 
-  // if (typeof userPermission === 'string') {
-  //   userPermission[] = [userPermission];
-  // }
-  // return res.status(403).send(permissions);
-
-  // const isPermission = permissions.some(
-  //   (permittedUser) => permittedUser.name === permission
-  // );
-  // if (!isPermission)
-  //   return res.status(403).send('You have no access to this page.');
-
   next();
   return true;
 };

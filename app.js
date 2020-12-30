@@ -15,7 +15,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const port = process.env.PORT || 6000;
 
-// Define Routes
+app.use(cors());
+
+app.use(express.json());
+
 app.use('/role', role);
 app.use('/permission', permission);
 app.use('/event', eventRoute);

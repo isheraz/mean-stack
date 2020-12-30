@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const Team = require('../models/Team');
+=======
+const { Team, User } = require('../models');
+>>>>>>> comment curd is implement
 
 const defaultResponse = require('../utils/defaultResponse');
 const constants = require('../utils/constants');
@@ -6,7 +10,9 @@ const responseStatus = require('../utils/responseStatus');
 
 exports.getTeam = async (req, res) => {
   try {
-    const team = await Team.findAll();
+    const team = await Team.findAll({
+      include: { model: User, as: 'Members' },
+    });
     if (team) {
       defaultResponse().success(
         constants.DATA_RETRIEVED,
@@ -95,8 +101,16 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
+  const id =
+    req.params.id != null
+      ? req.params.id
+      : defaultResponse().error(
+          { message: 'Params are Missing' },
+          res,
+          responseStatus.INVALID_BODY
+        );
   try {
-    const team = await Team.destroy({ where: { id: req.params.id } });
+    const team = await Team.destroy({ where: { id } });
     if (team) {
       defaultResponse().success(
         constants.DATA_DELETED,

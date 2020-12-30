@@ -2,7 +2,6 @@ const express = require('express');
 const routes = require('express').Router();
 const { Permission } = require('../models');
 
-// Get All Roles
 routes.get('/', async (req, res) => {
   const permission = await Permission.findAll();
   res.status(200).json({ data: permission });
