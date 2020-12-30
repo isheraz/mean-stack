@@ -1,15 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
-require('dotenv').config();
+const { Pool } = require('pg');
+const cors = require('cors');
+const configuration = require('./constants');
+const routes = require('./routes/index');
 
 const app = express();
-const role = require('./routes/role');
-const permission = require('./routes/permission');
-const userRoutes = require('./routes/user');
-const eventRoute = require('./routes/eventRoute')(express.Router());
-const blog = require('./routes/blog');
-// const { checkPermission, checkRole } = require('./_helpers/basicAuth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,12 +14,23 @@ const port = process.env.PORT || 6000;
 app.use(cors());
 
 app.use(express.json());
+app.use('/', routes);
 
-app.use('/role', role);
-app.use('/permission', permission);
-app.use('/event', eventRoute);
-app.use(userRoutes);
-app.use('/blog', blog);
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Authorization, Content-Type Cache-Control'
+  );
+  res.header('Cache-Control', 'max-age=0');
+  next();
+});
+
+const pool = new Pool(configuration.module.local);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => {
   console.log(`Server running on port localhost:${port}`);

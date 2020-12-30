@@ -1,32 +1,29 @@
 module.exports = () => {
+  const resultErrorObject = {
+    error: false,
+    message: '',
+  };
 
-    let resultErrorObject = {
-        error: false,
-        message: ""
-    };
+  const resultSuccessObject = {};
 
-    let resultSuccessObject = {
+  return {
+    error: (error, res, status = 500) => {
+      resultErrorObject.error = true;
+      resultErrorObject.message = error.message;
+      resultErrorObject.data = null;
 
-    };
+      res.status(status).json(resultErrorObject);
+    },
 
-    return ({
-        //Default response called from every controller in case of a error.
-        error: (error, res, status = 500) => {
-            resultErrorObject.error = true;
-            resultErrorObject.message = error.message;
-            resultErrorObject.data = null;
-
-            res.status(status).json(resultErrorObject);
-        },
-        //Default response called from every controller in case of a success.
-        success: (message, response, res, status) => {
-            resultSuccessObject.error = false;
-            resultSuccessObject.message = message;
-            if(response == null){
-                status = 201;
-            }
-            resultSuccessObject.data = response;
-            res.status(status).json(resultSuccessObject);
-        }
-    })
-}
+    success: (message, response, res, state) => {
+      resultSuccessObject.error = false;
+      resultSuccessObject.message = message;
+      let status = state;
+      if (response == null) {
+        status = 201;
+      }
+      resultSuccessObject.data = response;
+      res.status(status).json(resultSuccessObject);
+    },
+  };
+};

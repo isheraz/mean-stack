@@ -1,6 +1,6 @@
 module.exports = {
-  up: async (queryInterface, DataType) =>
-    queryInterface.createTable('Permissions', {
+  up: async (queryInterface, DataType) => {
+    await queryInterface.createTable('Permissions', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -18,7 +18,10 @@ module.exports = {
         allowNull: false,
         type: DataType.DATE,
       },
-    }),
-  down: async (queryInterface, Sequelize) =>
-    queryInterface.dropTable('Permissions'),
+    });
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Permissions');
+  },
 };

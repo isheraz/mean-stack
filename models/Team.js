@@ -1,15 +1,31 @@
-// const Sequelize = require('sequelize');
-// const db = require('./index');
+const { Model } = require('sequelize');
 
-// const team = db.define('Team', {
-//   id: {
-//     type: Sequelize.INTEGER,
-//     autoIncrement: true,
-//     primaryKey: true,
-//   },
-//   name: Sequelize.STRING,
-//   members: Sequelize.STRING,
-//   createdAt: { type: Sequelize.DATE, defaultValue: Date.now },
-//   updatedAt: { type: Sequelize.DATE, defaultValue: Date.now },
-// });
-// module.exports = team;
+module.exports = (sequelize, DataTypes) => {
+  class Team extends Model {
+    static associate(models) {
+      Team.hasMany(models.User, {
+        foreignKey: 'teamId',
+        as: 'Members',
+      });
+    }
+  }
+  Team.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: DataTypes.STRING,
+      createdAt: { type: DataTypes.DATE, defaultValue: Date.now },
+      updatedAt: { type: DataTypes.DATE, defaultValue: Date.now },
+      deletedAt: { type: DataTypes.DATE },
+    },
+    {
+      sequelize,
+      modelName: 'Team',
+      paranoid: true,
+    }
+  );
+  return Team;
+};

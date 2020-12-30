@@ -23,16 +23,10 @@ db.RoleHasPermission = require('./rolehaspermission')(
   sequelize,
   Sequelize.DataTypes
 );
-db.User = require('./user')(sequelize, Sequelize.DataTypes);
 db.UserRole = require('./userrole')(sequelize, Sequelize.DataTypes);
-db.Event = require('./event')(sequelize, Sequelize.DataTypes);
-// Accociation
-db.User.associate(db);
-db.UserRole.associate(db);
-db.Blog.associate(db);
-db.Permission.associate(db);
-db.RoleHasPermission.associate(db);
-db.Role.associate(db);
+db.User = require('./user')(sequelize, Sequelize.DataTypes);
+db.Team = require('./Team')(sequelize, Sequelize.DataTypes);
+db.Comment = require('./Comment')(sequelize, Sequelize.DataTypes);
 
 db.Comment.associate(db);
 db.Blog.associate(db);

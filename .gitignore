@@ -1,17 +1,4 @@
 /node_modules
 /.history
 .env
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 /config/config.json
-=======
-
-=======
-/config/config.json
->>>>>>> seprate routes to controllers
-=======
-config/config.json
->>>>>>> Updated code for staging
-/.idea
->>>>>>> added cors in server
