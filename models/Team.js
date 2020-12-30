@@ -2,7 +2,12 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Team extends Model {
-    static associate() {}
+    static associate(models) {
+      Team.hasMany(models.User, {
+        foreignKey: 'teamId',
+        as: 'Members',
+      });
+    }
   }
   Team.init(
     {
@@ -12,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       name: DataTypes.STRING,
-      members: DataTypes.STRING,
       createdAt: { type: DataTypes.DATE, defaultValue: Date.now },
       updatedAt: { type: DataTypes.DATE, defaultValue: Date.now },
       deletedAt: { type: DataTypes.DATE },

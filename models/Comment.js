@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       text: DataTypes.STRING,
+      blogId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       createdAt: { type: DataTypes.DATE, defaultValue: Date.now },
       updatedAt: { type: DataTypes.DATE, defaultValue: Date.now },
       deletedAt: { type: DataTypes.DATE },

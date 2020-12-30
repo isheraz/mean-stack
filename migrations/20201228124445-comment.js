@@ -7,6 +7,8 @@ module.exports = {
         primaryKey: true,
       },
       text: Sequelize.STRING,
+      blogId: Sequelize.INTEGER,
+      userId: Sequelize.INTEGER,
       deletedAt: { type: Sequelize.DATE },
       createdAt: { type: Sequelize.DATE, defaultValue: Date.now },
       updatedAt: { type: Sequelize.DATE, defaultValue: Date.now },

@@ -2,6 +2,7 @@ const routes = require('express').Router();
 const { body, validationResult } = require('express-validator');
 
 const blogModel = require('../models').Blog;
+const { Comment } = require('../models');
 
 const validate = (method) => {
   if (method !== 'Blog') return [body('parameters').notFound()];
@@ -23,17 +24,21 @@ const INVALIDSTATUSCODE = blogModel.MESSAGE.invalidData.statusCode;
 const NOTFOUNDSTATUSCODE = blogModel.MESSAGE.notFound.statusCode;
 const NOTFOUNDMESSAGE = blogModel.MESSAGE.notFound.message;
 
-// Get All Blogs
 routes.get('/', async (_req, res) => {
   try {
-    const blogs = await blogModel.findAll();
+    const blogs = await blogModel.findAll({
+      include: {
+        model: Comment,
+        as: 'Comment',
+      },
+    });
     res.status(SuccessStatusCode).json({ data: blogs });
   } catch (err) {
-    res.status(ERRORStatusCode).json({ error: ERRORMESSAGE });
+    console.log(err);
+    res.status(ERRORStatusCode).json({ error: err.message });
   }
 });
 
-// Create Blog
 routes.post('/create', validate('Blog'), async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -54,13 +59,11 @@ routes.post('/create', validate('Blog'), async (req, res) => {
   }
 });
 
-// Get One Blog by its Id
 routes.get('/:id', async (req, res) => {
   const blog = await blogModel.findOne({ where: { id: req.params.id } });
   res.status(SuccessStatusCode).json({ data: blog });
 });
 
-// Update Blog
 routes.put('/update/:id', validate('Blog'), async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -83,7 +86,6 @@ routes.put('/update/:id', validate('Blog'), async (req, res) => {
   }
 });
 
-// Soft Delete Blog
 routes.delete('/delete/:id', async (req, res) => {
   try {
     const blog = await blogModel.findOne({ where: { id: req.params.id } });

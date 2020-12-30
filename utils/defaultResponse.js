@@ -7,7 +7,6 @@ module.exports = () => {
   const resultSuccessObject = {};
 
   return {
-    // Default response called from every controller in case of a error.
     error: (error, res, status = 500) => {
       resultErrorObject.error = true;
       resultErrorObject.message = error.message;
@@ -15,16 +14,16 @@ module.exports = () => {
 
       res.status(status).json(resultErrorObject);
     },
-    // Default response called from every controller in case of a success.
-    success: (message, response, res, status) => {
+
+    success: (message, response, res, state) => {
       resultSuccessObject.error = false;
       resultSuccessObject.message = message;
-      let state = status;
+      let status = state;
       if (response == null) {
-        state = 201;
+        status = 201;
       }
       resultSuccessObject.data = response;
-      res.status(state).json(resultSuccessObject);
+      res.status(status).json(resultSuccessObject);
     },
   };
 };
