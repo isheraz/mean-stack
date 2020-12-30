@@ -24,7 +24,6 @@ app.use('/event', eventRoute);
 app.use(userRoutes);
 app.use('/blog', blog);
 
-
 app.listen(port, () => {
   console.log(`Server running on port localhost:${port}`);
 });

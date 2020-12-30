@@ -21,6 +21,7 @@ const getAllEvents = async (_req, res) => {
     }
     return res.status(200).json({ events: [], message: 'No Event Found' });
   } catch (error) {
+    console.log(error);
     return res
       .status(500)
       .json({ error: 'Something Went Wrong Please Try Again' });

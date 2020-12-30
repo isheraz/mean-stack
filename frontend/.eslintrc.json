@@ -1,0 +1,24 @@
+{
+    "env": {
+      "browser": true,
+      "amd": true,
+      "node": true
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+        "airbnb-base",
+        "eslint-config-prettier"
+    ],
+    "ignorePatterns": [
+        "node_modules/",
+        "e2e",
+        "karma.conf.js"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020, 
+      "sourceType": "module"
+    },
+    "rules": {}
+  }

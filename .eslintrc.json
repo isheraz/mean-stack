@@ -11,8 +11,8 @@
         "ecmaVersion": 12
     },
     "ignorePatterns": [
-        "node_modules/",
-        "frontend/"
+        "node_modules/"
+        
     ],
     "rules": {
         "comma-dangle":"off",

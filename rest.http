@@ -1,4 +1,4 @@
-GET http://127.0.0.1:6003/event/getAllEvents
+GET http://127.0.0.1:6000/event/getAllEvents
 Content-Type: application/json
 
 ###
