@@ -13,6 +13,8 @@ module.exports = {
   PASSWORD_UPDATED: 'Password has been updated',
   USER_NOTFOUND: 'User does not exist',
   USER_SIGNEDIN: 'User is signed-in',
+  USER_LOGGEDIN: 'User is logged-in',
   USER_LOGGEDOUT: 'User is logged-out',
   UNABLE_DELETE: 'This cannot be deleted',
+  EMAIL_EXIST: 'Email already exists',
 };
