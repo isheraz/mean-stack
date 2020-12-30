@@ -1,13 +1,6 @@
-const { body, validationResult } = require('express-validator');
-const bcrypt = require('bcrypt');
-
 const router = require('express').Router();
-
-const userModel = require('../models').User;
-const { UserRole } = require('../models');
-const validations = require('../validations/userValidations.js');
-
-const configuration = require('../constants');
+const { body, validationResult } = require('express-validator');
+const userController = require('../controllers/user.controller');
 
 router.post(
   '/register',
@@ -33,17 +26,10 @@ router.post(
     }
   }
 );
-
 router.post(
   '/login',
   [body('email').isEmail(), body('password').isLength({ min: 6 })],
-  async (req, res) => {
-    try {
-      await validations.customLoginValidation(req, res);
-    } catch {
-      res.status(500).send();
-    }
-  }
+  userController.login
 );
 
 module.exports = router;
