@@ -1,33 +1,11 @@
 {
   "development": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "username": "postgres",
-<<<<<<< HEAD
     "password": "12345",
     "database": "js_cms",
-=======
-    "password": "root",
-    "database": "new_js_cms",
->>>>>>> muzamil brach is merged
-=======
     "username": "admin",
     "password": "123",
-    "database": "basic_node",
->>>>>>> seprate routes to controllers
-=======
-    "username": "postgres",
-    "password": "root",
-    "database": "js_cms",
->>>>>>> Updated code for staging
-=======
-    "username": "postgres",
-    "password": "root",
-    "database": "js_cms",
->>>>>>> 51dfa8b45cd8ceac4fb2621e2412a229ac129be7
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "database": "basic_node"
   },
   "test": {
     "username": "root",

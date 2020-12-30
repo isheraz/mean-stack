@@ -1,22 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-const Team = require('../models/Team');
-=======
 const { Team, User } = require('../models');
->>>>>>> comment curd is implement
-=======
-const { Team, User } = require('../models');
->>>>>>> 51dfa8b45cd8ceac4fb2621e2412a229ac129be7
 
 const defaultResponse = require('../utils/defaultResponse');
 const constants = require('../utils/constants');
 const responseStatus = require('../utils/responseStatus');
 
-<<<<<<< HEAD
-exports.getTeam = async (req, res) => {
-=======
 exports.getTeam = async (_req, res) => {
->>>>>>> 51dfa8b45cd8ceac4fb2621e2412a229ac129be7
   try {
     const team = await Team.findAll({
       include: { model: User, as: 'Members' },
@@ -69,10 +57,6 @@ exports.saveTeam = async (req, res) => {
         responseStatus.ERROR
       );
   } catch (exception) {
-<<<<<<< HEAD
-=======
-    console.log(exception.message);
->>>>>>> 51dfa8b45cd8ceac4fb2621e2412a229ac129be7
     defaultResponse().error(
       { message: exception.message },
       res,
