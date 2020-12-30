@@ -6,7 +6,7 @@ import { EventComponent } from './event/event.component';
 import { EventFormComponent } from './event/event-form/event-form.component';
 import { EventViewComponent } from './event/event-view/event-view.component';
 import { DeletePopupComponent } from './components/popups/delete-popup/delete-popup.component';
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule, routingComponent} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TeamComponent} from './components/team/team.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,14 +19,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {ToastrModule} from 'ngx-toastr';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {CreateTeamComponent} from './components/team/create-team/create-team.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import {ViewTeamComponent} from './components/team/view-team/view-team.component';
 import {MatSelectModule} from '@angular/material/select';
-import { CommentsComponent } from './components/comments/comments.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -41,6 +38,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterService } from './services/register.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,17 +94,18 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     ReactiveFormsModule,
     MatBadgeModule,
-    ToastrModule.forRoot(),
     FlexLayoutModule,
-    MatDialogModule
-  ],
-  entryComponents:[
-    CommentsComponent
+    MatDialogModule,
+    CommentsComponent,RegisterComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    RegisterService
   ],
+
 })
 export class AppModule {
 }

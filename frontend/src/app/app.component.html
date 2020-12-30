@@ -1,2 +1,20 @@
-<app-header></app-header>
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div>
+    <a routerLink="login" class="positronx">CMS</a>
+  </div>
+  <div *ngIf="loggedIn()">
+    <a mat-button routerLink="blog"> Blogs </a>
+    <a mat-button routerLink="event"> Events </a>
+    <a mat-button routerLink="team"> Teams </a>
+  </div>
+  <span class="nav-tool-items" *ngIf="!loggedIn()">
+    <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+    <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
+  </span>
+  <span class="nav-tool-items" *ngIf="loggedIn()">
+    <a mat-button (click)="logOut()" routerLinkActive="active">Log Out</a>
+  </span>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

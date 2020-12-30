@@ -14,7 +14,7 @@ export default {
     res.status(status).json(resultErrorObject);
   },
 
-  success: (message, response, res, state) => {
+  success: (message, response, res, state, token = null) => {
     resultSuccessObject.error = false;
     resultSuccessObject.message = message;
     let status = state;
@@ -22,6 +22,9 @@ export default {
       status = 201;
     }
     resultSuccessObject.data = response;
+    if (token != null) {
+      resultSuccessObject.token = token;
+    }
     res.status(status).json(resultSuccessObject);
   },
 };

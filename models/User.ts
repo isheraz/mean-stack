@@ -6,6 +6,10 @@ export default (sequelize, DataTypes) => {
     userRole: any;
     id: any;
 
+    name: any;
+
+    email: any;
+
     static associate(models) {
       User.hasOne(models.UserRole, {
         foreignKey: 'userId',

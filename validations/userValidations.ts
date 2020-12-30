@@ -1,5 +1,6 @@
 import { validationResult } from 'express-validator';
 import { compare } from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { User } from '../models';
 import defaultResponse from '../utils/defaultResponse';
 import constants from '../utils/constants';
@@ -38,11 +39,18 @@ export const customLoginValidation = async (req, res) => {
     );
   }
   if (await compare(req.body.password, user.password)) {
+    const loggedUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    };
+    const token = jwt.sign(loggedUser, process.env.TOKEN_SECRET);
     defaultResponse.success(
       constants.USER_LOGGEDIN,
       user,
       res,
-      responseStatus.SUCCESS
+      responseStatus.SUCCESS,
+      token
     );
   }
   defaultResponse.error(
