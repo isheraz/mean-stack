@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: { type: DataTypes.STRING, nullable: false },
       venue: { type: DataTypes.STRING, nullable: false },
+      desc: { type: DataTypes.STRING, nullable: true },
       date: {
         type: DataTypes.DATE,
         defaultValue: Date.now,
