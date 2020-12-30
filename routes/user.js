@@ -18,7 +18,7 @@ router.post(
       if (!validator) {
         req.body.password = await bcrypt.hash(req.body.password, 10);
         const user = await userModel.create(req.body);
-        
+
         await UserRole.create({
           userId: user.id,
           roleId: configuration.module.DefaultRoleId,

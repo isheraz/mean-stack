@@ -2,8 +2,12 @@
 /.history
 .env
 <<<<<<< HEAD
+<<<<<<< HEAD
 /config/config.json
 =======
 
+=======
+/config/config.json
+>>>>>>> seprate routes to controllers
 /.idea
 >>>>>>> added cors in server

@@ -1,5 +1,6 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "postgres",
 <<<<<<< HEAD
     "password": "12345",
@@ -8,6 +9,11 @@
     "password": "root",
     "database": "new_js_cms",
 >>>>>>> muzamil brach is merged
+=======
+    "username": "admin",
+    "password": "123",
+    "database": "basic_node",
+>>>>>>> seprate routes to controllers
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
