@@ -1,6 +1,7 @@
 {
   "development": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "username": "postgres",
 <<<<<<< HEAD
     "password": "12345",
@@ -14,6 +15,11 @@
     "password": "123",
     "database": "basic_node",
 >>>>>>> seprate routes to controllers
+=======
+    "username": "postgres",
+    "password": "root",
+    "database": "js_cms",
+>>>>>>> Updated code for staging
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
