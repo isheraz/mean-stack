@@ -7,6 +7,7 @@ module.exports = (router) => {
     [
       body('name').notEmpty(),
       body('venue').notEmpty(),
+      body('desc').notEmpty(),
       body('date').notEmpty(),
     ],
     eventController.createEvent

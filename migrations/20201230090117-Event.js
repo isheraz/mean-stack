@@ -15,6 +15,7 @@ module.exports = {
         type: Sequelize.STRING,
         nullable: false,
       },
+      desc: { type: Sequelize.STRING, nullable: true },
       date: {
         type: Sequelize.DATE,
         defaultValue: Date.now,
