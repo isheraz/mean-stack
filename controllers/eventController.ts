@@ -1,5 +1,5 @@
-const { validationResult } = require('express-validator');
-const { Event } = require('../models');
+import { validationResult } from 'express-validator';
+import { Event } from '../models';
 
 const createEvent = async (req, res) => {
   try {

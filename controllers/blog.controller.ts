@@ -1,6 +1,7 @@
-const { validationResult } = require('express-validator');
-const blogModel = require('../models').Blog;
-const { Comment } = require('../models');
+import { validationResult } from 'express-validator';
+import { blogModel } from '../models';
+import { Comment } from '../models';
+import { validate } from '../routes/blog';
 
 const SuccessStatusCode = blogModel.MESSAGE.success.statusCode;
 const SuccessUPDATEMESSAGE = blogModel.MESSAGE.success.message.update;
@@ -11,7 +12,7 @@ const INVALIDSTATUSCODE = blogModel.MESSAGE.invalidData.statusCode;
 const NOTFOUNDSTATUSCODE = blogModel.MESSAGE.notFound.statusCode;
 const NOTFOUNDMESSAGE = blogModel.MESSAGE.notFound.message;
 
-exports.Blogs = async (_req, res) => {
+export const Blogs = async (_req, res) => {
   try {
     const blogs = await blogModel.findAll({
       include: {
@@ -25,9 +26,9 @@ exports.Blogs = async (_req, res) => {
   }
 };
 
-exports.saveBlog = async (req, res) => {
+export const saveBlog = async (req, res) => {
   try {
-    this.validate('Blog');
+    validate('Blog');
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.status(INVALIDSTATUSCODE).json({ errors: errors.array() });
@@ -46,12 +47,12 @@ exports.saveBlog = async (req, res) => {
   }
 };
 
-exports.getBlog = async (req, res) => {
+export const getBlog = async (req, res) => {
   const blog = await blogModel.findOne({ where: { id: req.params.id } });
   res.status(SuccessStatusCode).json({ data: blog });
 };
 
-exports.update = async (req, res) => {
+export const update = async (req, res) => {
   try {
     // const errors = validationResult(req);
     // if (!errors.isEmpty()) {
@@ -77,7 +78,7 @@ exports.update = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
+export const deleteBlog = async (req, res) => {
   try {
     const blog = await blogModel.findOne({ where: { id: req.params.id } });
     if (!blog) {

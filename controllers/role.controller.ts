@@ -1,20 +1,18 @@
-const routes = require('express').Router();
-const { Role } = require('../models');
-const { RoleHasPermission } = require('../models');
+import { Role, RoleHasPermission } from '../models';
 
-exports.role = async (_req, res) => {
+export const getRole = async (_req, res) => {
   const roles = await Role.findAll();
   res.status(200).json({ data: roles });
 };
 
-exports.saveRole = async (req, res) => {
+export const saveRole = async (req, res) => {
   const role = await Role.create({
     name: req.body.name,
   });
   res.status(200).json({ data: role });
 };
 
-exports.assignPermissionToRole = async (req, res) => {
+export const assignPermissionToRole = async (req, res) => {
   const pivot = {
     permissionId: req.params.roleId,
     roleId: req.params.permissionId,

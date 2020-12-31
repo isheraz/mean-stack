@@ -1,10 +1,9 @@
-const { Comment } = require('../models');
+import { Comment } from '../models';
+import { defaultResponse } from '../utils/defaultResponse';
+import { constants } from '../utils/constants';
+import { responseStatus } from '../utils/responseStatus';
 
-const defaultResponse = require('../utils/defaultResponse');
-const constants = require('../utils/constants');
-const responseStatus = require('../utils/responseStatus');
-
-exports.create = async (req, res) => {
+export const create = async (req, res) => {
   const requestBody =
     req.body != null
       ? req.body
@@ -22,13 +21,14 @@ exports.create = async (req, res) => {
         res,
         responseStatus.ERROR
       );
-    } else
+    } else{
       defaultResponse().success(
         constants.DATA_SAVED,
         comment,
         res,
         responseStatus.SUCCESS
       );
+    }
   } catch (exception) {
     defaultResponse().error(
       { message: exception.message },
@@ -38,7 +38,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.getAll = async (_req, res) => {
+export const getAll = async (_req, res) => {
   try {
     const comments = await Comment.findAll();
     if (!comments) {
@@ -65,7 +65,7 @@ exports.getAll = async (_req, res) => {
   }
 };
 
-exports.update = async (req, res) => {
+export const update = async (req, res) => {
   const requestBody =
     req.body != null
       ? req.body
@@ -111,7 +111,7 @@ exports.update = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
+export const deleteComment = async (req, res) => {
   const id =
     req.params.id != null
       ? req.params.id
