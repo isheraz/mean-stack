@@ -9,7 +9,9 @@
     "lint:frontend": "eslint ./frontend --ext=js,ts --ignore-pattern node_modules/",
     "lint:fix": "eslint ./ --ext=js,ts --fix=true --ignore-pattern node_modules/",
     "frontend": "cd frontend && ng serve --open",
-    "build": "todo"
+    "build": "todo",
+    "start": "tsc && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

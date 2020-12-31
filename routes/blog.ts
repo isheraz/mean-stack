@@ -1,6 +1,7 @@
-const router = require('express').Router();
-const { body } = require('express-validator');
-const blogController = require('../controllers/blog.controller');
+import * as express from 'express';
+const router= express.Router();
+import { body } from 'express-validator';
+import blogController from '../controllers/blog.controller'
 
 const validate = (method) => {
   if (method !== 'Blog') return [body('parameters').notFound()];
@@ -19,4 +20,4 @@ router.post('/create', validate('Blog'), blogController.saveBlog);
 router.put('/update/:id', validate('Blog'), blogController.update);
 router.delete('/delete/:id', blogController.delete);
 
-module.exports = router;
+export default router;
