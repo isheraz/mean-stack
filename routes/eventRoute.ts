@@ -1,5 +1,5 @@
-const { body } = require('express-validator');
-const eventController = require('../controllers/eventController');
+import { body } from 'express-validator';
+import eventController from '../controllers/eventController';
 
 module.exports = (router) => {
   router.post(
