@@ -1,5 +1,6 @@
 {
     "defaultSeverity": "error",
+<<<<<<< HEAD
     "extends": [
         "tslint:recommended"
     ],
@@ -7,3 +8,12 @@
     "rules": {},
     "rulesDirectory": []
 }
+=======
+    "extends": ["tslint:recommended"],
+    "jsRules": {},
+    "rules": {
+      "no-console": false
+    },
+    "rulesDirectory": []
+  }
+>>>>>>> .js to .ts conversion of routes & migrations
