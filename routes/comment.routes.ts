@@ -1,5 +1,6 @@
 import * as express from 'express';
 const router= express.Router();
+
 import commentController from '../controllers/comment.controller';
 
 router.post('/create', commentController.create);

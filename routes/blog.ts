@@ -4,7 +4,7 @@ import { body } from 'express-validator';
 import blogController from '../controllers/blog.controller'
 
 const validate = (method) => {
-  if (method !== 'Blog') return [body('parameters').notFound()];
+  if (method !== 'Blog') return [body('parameters').isEmpty()];
 
   return [
     body('title').notEmpty(),

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   up: async (queryInterface, DataType) => {
     await queryInterface.createTable('RoleHasPermissions', {
       id: {
