@@ -35,7 +35,9 @@
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css" 
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -132,6 +134,6 @@
   },
   "defaultProject": "frontend",
   "cli": {
-    "analytics": "2ab908dc-5450-48ef-ab55-ab2e192cc91d"
+    "analytics": false
   }
 }

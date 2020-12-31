@@ -28,6 +28,15 @@ import {ViewTeamComponent} from './components/team/view-team/view-team.component
 import {MatSelectModule} from '@angular/material/select';
 import { CommentsComponent } from './components/comments/comments.component';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { HeaderComponent } from './components/header/header.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { NewBlogComponent } from './components/new-blog/new-blog.component';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +47,10 @@ import { CommentsComponent } from './components/comments/comments.component';
     TeamComponent,
     CreateTeamComponent,
     ViewTeamComponent,
-    CommentsComponent
+    CommentsComponent,
+    HeaderComponent,
+    routingComponent,
+    NewBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,33 +59,39 @@ import { CommentsComponent } from './components/comments/comments.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatInputModule,
     MatButtonModule,
-    MatTableModule,
     MatPaginatorModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    BrowserAnimationsModule,
     MatTableModule,
-    HttpClientModule,
-    MatCardModule,
     FlexModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule,
-    ToastrModule.forRoot(),
-    MatPaginatorModule,
-    MatSortModule,
-    MatDialogModule,
+    MatSortModule,    
     MatSelectModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
   entryComponents: [
     CreateTeamComponent,
-    ViewTeamComponent
-  ]
+    ViewTeamComponent,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatBadgeModule
+  ],
+  bootstrap: [AppComponent],
+  providers: [
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+  ],
 })
 export class AppModule {
 }

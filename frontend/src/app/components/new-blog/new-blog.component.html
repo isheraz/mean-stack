@@ -1,0 +1,29 @@
+ 
+ <!-- <mat-card class=""> -->
+     <div class="container">
+        <form class="example-form" [formGroup]="blogForm" (ngSubmit)="createBlog()">
+            <mat-form-field class="example-full-width">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title">
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Description..." formControlName="description"></textarea>
+            </mat-form-field>
+  
+            <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+                <mat-option *ngFor="let status of statuses" [value]="status.value">
+                {{status.viewValue}} 
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+
+                <br>
+                <button type="submit"s mat-flat-button color="primary">Submit</button>
+
+        </form> 
+     </div>
+    <!-- </mat-card> -->

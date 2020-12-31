@@ -46,6 +46,7 @@ export const Blogs = async (_req, res) => {
         model: Comment,
         as: 'Comment',
       },
+      order: [['id', 'DESC']],
     });
     res.status(SuccessStatusCode).json({ data: blogs });
   } catch (err) {

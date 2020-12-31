@@ -1,0 +1,31 @@
+
+<div class="container"> 
+<!-- <mat-grid-list cols="3">
+  <mat-grid-tile *ngFor="let blogData of data"> -->
+    <div class="row"> 
+            <div class="col-lg-4" *ngFor="let blogData of data">
+              <mat-card class="mat-elevation-z8" style="height: 300px;">
+                <mat-card-header> 
+                  <mat-icon aria-hidden="false" aria-label="Edit icon" class="text-warning cursor" [routerLink]="[blogData.id,'edit']">edit</mat-icon>
+                  <mat-icon aria-hidden="false" aria-label="Edit delete" class="text-danger cursor" (click)="deleteBlog(blogData.id)">delete</mat-icon>
+  
+                    <h4><span class="badge badge-secondary">{{ blogData.status == 1 ? 'Active' : 'In-Active' }}</span></h4>
+                  <mat-card-title>{{blogData.title}}</mat-card-title>
+                  <!-- <mat-card-subtitle>{{blogData.user.name}}</mat-card-subtitle> -->
+                </mat-card-header>
+                <mat-card-content>
+                  <p>
+                    {{blogData.description}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <!-- <button mat-button><span>12</span> LIKE</button>  -->
+                </mat-card-actions>
+              </mat-card>
+              <br>
+            </div> 
+    </div>
+  <!-- </mat-grid-tile> 
+</mat-grid-list> -->
+ 
+</div>
