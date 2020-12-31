@@ -8,7 +8,7 @@ import team from'./team.routes';
 import comments from './comment.routes';
 import blog from './blog';
 
-function routes(step, plugin) {
+function routes() {
   router.use('/role', role);
   router.use('/permission', permission);
   router.use('/team', team);
