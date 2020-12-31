@@ -1,16 +1,15 @@
  
  <!-- <mat-card class=""> -->
-     <div fxLayout="row" fxLayoutAlign="center center">
-         <div fxFlex="48" style="border: blue 1px solid; padding:1rem">
-        <form [formGroup]="blogForm" (ngSubmit)="createBlog()">
-            <mat-form-field style="width: 100%;">
+     <div class="container">
+        <form class="example-form" [formGroup]="blogForm" (ngSubmit)="createBlog()">
+            <mat-form-field class="example-full-width">
             <mat-label>Title</mat-label>
-            <input matInput formControlName="title">
+            <input matInput placeholder="Title" formControlName="title">
             </mat-form-field>
         
-            <mat-form-field style="width: 100%;">
+            <mat-form-field class="example-full-width">
             <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description"></textarea>
+            <textarea matInput placeholder="Description..." formControlName="description"></textarea>
             </mat-form-field>
   
             <mat-form-field appearance="fill">
@@ -22,10 +21,9 @@
             </mat-select>
             </mat-form-field>
 
-                <div style="text-align: center;">
+                <br>
                 <button type="submit"s mat-flat-button color="primary">Submit</button>
-            </div>
+
         </form> 
-    </div>
      </div>
     <!-- </mat-card> -->
