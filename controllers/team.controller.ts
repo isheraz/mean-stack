@@ -1,10 +1,10 @@
-const { Team, User } = require('../models');
+import { Team, User } from '../models';
 
-const defaultResponse = require('../utils/defaultResponse');
-const constants = require('../utils/constants');
-const responseStatus = require('../utils/responseStatus');
+import { defaultResponse } from '../utils/defaultResponse';
+import { constants } from '../utils/constants';
+import { responseStatus } from '../utils/responseStatus';
 
-exports.getTeam = async (_req, res) => {
+export const getTeam = async (_req, res) => {
   try {
     const team = await Team.findAll({
       include: { model: User, as: 'Members' },
@@ -16,13 +16,14 @@ exports.getTeam = async (_req, res) => {
         res,
         responseStatus.SUCCESS
       );
-    } else
+    } else{
       defaultResponse().success(
         constants.DATA_NOT_FOUND,
         null,
         res,
         responseStatus.SUCCESS
       );
+    }
   } catch (exception) {
     defaultResponse().error(
       { message: exception.message },
@@ -32,7 +33,7 @@ exports.getTeam = async (_req, res) => {
   }
 };
 
-exports.saveTeam = async (req, res) => {
+export const saveTeam = async (req, res) => {
   try {
     const requestBody =
       req.body != null
@@ -50,12 +51,13 @@ exports.saveTeam = async (req, res) => {
         res,
         responseStatus.SUCCESS
       );
-    } else
+    } else{
       defaultResponse().error(
         constants.DATA_NOT_FOUND,
         res,
         responseStatus.ERROR
       );
+    }
   } catch (exception) {
     defaultResponse().error(
       { message: exception.message },
@@ -65,7 +67,7 @@ exports.saveTeam = async (req, res) => {
   }
 };
 
-exports.update = async (req, res) => {
+export const update = async (req, res) => {
   try {
     if (req.body) {
       const team = await Team.update(req.body, {
@@ -80,12 +82,13 @@ exports.update = async (req, res) => {
           res,
           responseStatus.SUCCESS
         );
-      } else
+      } else{
         defaultResponse().error(
           constants.DATA_NOT_FOUND,
           res,
           responseStatus.ERROR
         );
+      }
     }
   } catch (exception) {
     defaultResponse().error(
@@ -96,7 +99,7 @@ exports.update = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
+export const deleteTeam = async (req, res) => {
   const id =
     req.params.id != null
       ? req.params.id
@@ -114,12 +117,13 @@ exports.delete = async (req, res) => {
         res,
         responseStatus.SUCCESS
       );
-    } else
+    } else{
       defaultResponse().error(
         constants.DATA_NOT_FOUND,
         res,
         responseStatus.ERROR
       );
+    }
   } catch (exception) {
     defaultResponse().error(
       { message: exception.message },
