@@ -1,5 +1,5 @@
-import * as express from 'express';
-const router= express.Router();
+import { Router } from 'express';
+const router = Router();
 import teamController from '../controllers/team.controller';
 
 router.get('/get', teamController.getTeam);

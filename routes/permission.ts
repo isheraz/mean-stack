@@ -1,5 +1,5 @@
-import * as express from 'express';
-const router= express.Router();
+import { Router } from 'express';
+const router = Router();
 import permissionController from'../controllers/permission.controller';
 
 router.get('/', permissionController.permission);
