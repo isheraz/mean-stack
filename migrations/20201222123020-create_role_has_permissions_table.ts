@@ -1,14 +1,19 @@
-module.exports = {
+export default {
   up: async (queryInterface, DataType) => {
-    await queryInterface.createTable('Permissions', {
+    await queryInterface.createTable('RoleHasPermissions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataType.INTEGER,
       },
-      name: {
-        type: DataType.STRING,
+      roleId: {
+        allowNull: false,
+        type: DataType.INTEGER,
+      },
+      permissionId: {
+        allowNull: false,
+        type: DataType.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +27,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Permissions');
+    await queryInterface.dropTable('RoleHasPermissions');
   },
 };

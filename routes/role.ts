@@ -1,5 +1,6 @@
-const router = require('express').Router();
-const roleController = require('../controllers/role.controller');
+import { Router } from 'express';
+const router = Router();
+import roleController from '../controllers/role.controller';
 
 router.get('/', roleController.role);
 router.post('/create', roleController.saveRole);
@@ -8,4 +9,4 @@ router.put(
   roleController.assignPermissionToRole
 );
 
-module.exports = router;
+export default router;
