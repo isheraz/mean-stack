@@ -1,7 +1,7 @@
-const { Role } = require('../models');
-const { User } = require('../models');
-const { UserRole } = require('../models');
-const { Permission } = require('../models');
+import Role from '../models/role';
+import User from '../models/user';
+import UserRole from '../models/userrole';
+import Permission from '../models/permission';
 
 const checkPermission = (userPermission) => async (req, res, next) => {
   const userId = req.header('userId');
@@ -30,6 +30,16 @@ const checkPermission = (userPermission) => async (req, res, next) => {
     ],
   });
   const permissions = role ? role.permissions : null;
+  let userPermissions = userPermission;
+  if (typeof userPermissions === 'string') {
+    userPermissions = [userPermissions];
+  }
+  const isPermission = permissions.every((permission) =>
+    userPermissions.includes(permission.name)
+  );
+
+  if (!isPermission)
+    return res.status(403).send('You have no access to this page.');
 
   next();
   return true;
@@ -64,7 +74,7 @@ const checkRole = (userRole) => async (req, res, next) => {
   return true;
 };
 
-module.exports = {
+export default {
   checkPermission,
   checkRole,
 };
