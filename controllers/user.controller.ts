@@ -1,17 +1,17 @@
-const bcrypt = require('bcrypt');
-const userModel = require('../models').User;
-const { UserRole } = require('../models');
-const validations = require('../validations/userValidations.js');
-const configuration = require('../constants');
-const defaultResponse = require('../utils/defaultResponse');
-const constants = require('../utils/constants');
-const responseStatus = require('../utils/responseStatus');
+import { hash }  from 'bcrypt';
+import { userModel } from '../models';
+import { UserRole } from '../models';
+import { validations } from '../validations/userValidations';
+import { configuration } from '../constants';
+import { defaultResponse } from '../utils/defaultResponse';
+import { constants } from '../utils/constants';
+import { responseStatus } from '../utils/responseStatus';
 
-exports.register = async (req, res) => {
+export const register = async (req, res) => {
   try {
     const validator = await validations.customRegisterValidation(req, res);
     if (!validator) {
-      req.body.password = await bcrypt.hash(req.body.password, 10);
+      req.body.password = await hash(req.body.password, 10);
       const user = await userModel.create(req.body);
 
       const userRegistered = await UserRole.create({
@@ -36,7 +36,7 @@ exports.register = async (req, res) => {
   }
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   try {
     await validations.customLoginValidation(req, res);
   } catch (err) {
