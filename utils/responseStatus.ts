@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   NO_SUBSCRIPTION: 400,
   INVALID_BODY: 400,
   NO_TOKEN: 401,
