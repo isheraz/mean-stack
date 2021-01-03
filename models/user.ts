@@ -2,6 +2,12 @@ import { Model } from 'sequelize';
 
 export default (sequelize, DataTypes) => {
   class User extends Model {
+    password: string;
+
+    userRole: any;
+
+    id: any;
+
     static associate(models) {
       User.hasOne(models.UserRole, {
         foreignKey: 'userId',

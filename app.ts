@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 

@@ -1,13 +1,13 @@
 import { Comment } from '../models';
-import { defaultResponse } from '../utils/defaultResponse';
-import { constants } from '../utils/constants';
-import { responseStatus } from '../utils/responseStatus';
+import defaultResponse from '../utils/defaultResponse';
+import constants from '../utils/constants';
+import responseStatus from '../utils/responseStatus';
 
 export const create = async (req, res) => {
   const requestBody =
     req.body != null
       ? req.body
-      : defaultResponse().error(
+      : defaultResponse.error(
           { message: constants.INVALID_BODY },
           res,
           responseStatus.INVALID_BODY
@@ -16,13 +16,13 @@ export const create = async (req, res) => {
   try {
     const comment = await Comment.create(requestBody);
     if (!comment) {
-      defaultResponse().error(
+      defaultResponse.error(
         { message: 'Comment is not posted' },
         res,
         responseStatus.ERROR
       );
-    } else{
-      defaultResponse().success(
+    } else {
+      defaultResponse.success(
         constants.DATA_SAVED,
         comment,
         res,
@@ -30,7 +30,7 @@ export const create = async (req, res) => {
       );
     }
   } catch (exception) {
-    defaultResponse().error(
+    defaultResponse.error(
       { message: exception.message },
       res,
       responseStatus.ERROR
@@ -42,14 +42,14 @@ export const getAll = async (_req, res) => {
   try {
     const comments = await Comment.findAll();
     if (!comments) {
-      defaultResponse().success(
+      defaultResponse.success(
         constants.DATA_NOT_FOUND,
         null,
         res,
         responseStatus.SUCCESS
       );
     } else {
-      defaultResponse().success(
+      defaultResponse.success(
         constants.DATA_RETRIEVED,
         comments,
         res,
@@ -57,7 +57,7 @@ export const getAll = async (_req, res) => {
       );
     }
   } catch (excep) {
-    defaultResponse().error(
+    defaultResponse.error(
       { messsage: excep.message },
       res,
       responseStatus.ERROR
@@ -69,7 +69,7 @@ export const update = async (req, res) => {
   const requestBody =
     req.body != null
       ? req.body
-      : defaultResponse().error(
+      : defaultResponse.error(
           { message: constants.INVALID_BODY },
           res,
           responseStatus.INVALID_BODY
@@ -78,7 +78,7 @@ export const update = async (req, res) => {
   const id =
     req.params.id != null
       ? req.params.id
-      : defaultResponse().error(
+      : defaultResponse.error(
           { message: 'Params are Missing' },
           res,
           responseStatus.INVALID_BODY
@@ -87,23 +87,23 @@ export const update = async (req, res) => {
     const comment = await Comment.update(requestBody, {
       where: { id },
       returning: true,
-      plain: true,
+      // plain: true,
     });
     if (!comment)
-      defaultResponse().error(
+      defaultResponse.error(
         constants.DATA_NOT_FOUND,
         res,
         responseStatus.ERROR
       );
     else
-      defaultResponse().success(
+      defaultResponse.success(
         constants.DATA_UPDATED,
         comment,
         res,
         responseStatus.SUCCESS
       );
   } catch (exception) {
-    defaultResponse().error(
+    defaultResponse.error(
       { message: exception.message },
       res,
       responseStatus.ERROR
@@ -115,7 +115,7 @@ export const deleteComment = async (req, res) => {
   const id =
     req.params.id != null
       ? req.params.id
-      : defaultResponse().error(
+      : defaultResponse.error(
           { message: 'Params are Missing' },
           res,
           responseStatus.INVALID_BODY
@@ -123,17 +123,17 @@ export const deleteComment = async (req, res) => {
   try {
     const comment = await Comment.destroy({
       where: { id },
-      returning: true,
-      plain: true,
+      // returning: true,
+      // plain: true,
     });
     if (!comment) {
-      defaultResponse().error(
+      defaultResponse.error(
         { message: constants.DATA_NOT_FOUND },
         res,
         responseStatus.ERROR
       );
     } else {
-      defaultResponse().success(
+      defaultResponse.success(
         constants.DATA_DELETED,
         comment,
         res,
@@ -141,7 +141,7 @@ export const deleteComment = async (req, res) => {
       );
     }
   } catch (excep) {
-    defaultResponse().error(
+    defaultResponse.error(
       { message: excep.message },
       res,
       responseStatus.ERROR

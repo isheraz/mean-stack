@@ -1,19 +1,19 @@
-import * as Seq from 'sequelize';
+import { Sequelize, DataTypes } from 'sequelize';
 
-import Blog from './blog';
-import Permission from './permission';
-import Role from './role';
-import RoleHasPermission from './rolehaspermission';
-import UserRole from './userrole';
-import User from './user';
-import Team from './Team';
-import Comment from './Comment';
+import BlogModel from './Blog';
+import PermissionModel from './Permission';
+import RoleModel from './Role';
+import RoleHasPermissionModel from './RoleHasPermission';
+import UserRoleModel from './UserRole';
+import UserModel from './User';
+import TeamModel from './Team';
+import CommentModel from './Comment';
+import EventModel from './Event';
+
 import config from '../config/config.json';
 
-const { Sequelize } = Seq;
 const env = process.env.NODE_ENV || 'development';
 
-const db = null;
 let sequelize;
 
 if (config[env].use_env_variable) {
@@ -30,20 +30,31 @@ if (config[env].use_env_variable) {
   );
 }
 
-db.Blog = Blog(sequelize, Seq.DataTypes);
-db.Permission = Permission(sequelize, Seq.DataTypes);
-db.Role = Role(sequelize, Seq.DataTypes);
-db.RoleHasPermission = RoleHasPermission(sequelize, Seq.DataTypes);
-db.UserRole = UserRole(sequelize, Seq.DataTypes);
-db.User = User(sequelize, Seq.DataTypes);
-db.Team = Team(sequelize, Seq.DataTypes);
-db.Comment = Comment(sequelize, Seq.DataTypes);
+const Blog = BlogModel(sequelize, DataTypes);
+const Permission = PermissionModel(sequelize, DataTypes);
+const Role = RoleModel(sequelize, DataTypes);
+const RoleHasPermission = RoleHasPermissionModel(sequelize, DataTypes);
+const UserRole = UserRoleModel(sequelize, DataTypes);
+const User = UserModel(sequelize, DataTypes);
+const Team = TeamModel(sequelize, DataTypes);
+const Comment = CommentModel(sequelize, DataTypes);
+const Event = EventModel(sequelize, DataTypes);
 
-db.Comment.associate(db);
-db.Blog.associate(db);
-db.Team.associate(db);
+// db.Comment.associate(db);
+// db.Blog.associate(db);
+// db.Team.associate(db);
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.sequelize = sequelize;
+// const Sequelize = Sequelize;
 
-export default db;
+export {
+  Blog,
+  Role,
+  RoleHasPermission,
+  UserRole,
+  User,
+  Comment,
+  Team,
+  Permission,
+  Event,
+};

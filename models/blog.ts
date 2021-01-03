@@ -2,7 +2,16 @@ import { Model } from 'sequelize';
 
 export default (sequelize, DataTypes) => {
   class Blog extends Model {
-    static MESSAGE: { error: { statusCode: number; message: string; }; notFound: { statusCode: number; message: string; }; success: { statusCode: number; message: { update: string; delete: string; }; }; invalidData: { statusCode: number; message: string; }; };
+    static MESSAGE: {
+      error: { statusCode: number; message: string };
+      notFound: { statusCode: number; message: string };
+      success: {
+        statusCode: number;
+        message: { update: string; delete: string };
+      };
+      invalidData: { statusCode: number; message: string };
+    };
+
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.

@@ -1,10 +1,16 @@
 import { Router } from 'express';
-const router = Router();
-import commentController from '../controllers/comment.controller';
+import {
+  create,
+  getAll,
+  update,
+  deleteComment,
+} from '../controllers/comment.controller';
 
-router.post('/create', commentController.create);
-router.get('/get', commentController.getAll);
-router.put('/update/:id', commentController.update);
-router.delete('/delete/:id', commentController.delete);
+const router = Router();
+
+router.post('/create', create);
+router.get('/get', getAll);
+router.put('/update/:id', update);
+router.delete('/delete/:id', deleteComment);
 
 export default router;

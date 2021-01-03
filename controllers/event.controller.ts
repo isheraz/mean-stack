@@ -1,34 +1,31 @@
 import { validationResult } from 'express-validator';
 import { Event } from '../models';
 
-const createEvent = async (req, res) => {
+export const createEvent = async (req, res) => {
   try {
     const errors = validationResult(req);
-    if (!errors.isEmpty())
-      return res.status(404).json({ error: errors.array() });
+    if (!errors.isEmpty()) res.status(404).json({ error: errors.array() });
     const event = await Event.create(req.body);
-    return res.status(200).json({ event });
+    res.status(200).json({ event });
   } catch (error) {
-    return res.status(500).json({ error });
+    res.status(500).json({ error });
   }
 };
 
-const getAllEvents = async (_req, res) => {
+export const getAllEvents = async (_req, res) => {
   try {
     const events = await Event.findAll();
     if (events.length > 0) {
-      return res.status(200).json({ events });
+      res.status(200).json({ events });
     }
-    return res.status(200).json({ events: [], message: 'No Event Found' });
+    res.status(200).json({ events: [], message: 'No Event Found' });
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .json({ error: 'Something Went Wrong Please Try Again' });
+    res.status(500).json({ error: 'Something Went Wrong Please Try Again' });
   }
 };
 
-const getEventById = async (req, res) => {
+export const getEventById = async (req, res) => {
   try {
     const { id } = req.params;
     if (!id) return res.status(404).json({ error: 'id must be number' });
@@ -42,7 +39,7 @@ const getEventById = async (req, res) => {
   }
 };
 
-const updateEvent = async (req, res) => {
+export const updateEvent = async (req, res) => {
   try {
     const { id } = req.params;
     if (!id) return res.status(404).json({ error: 'id must be number' });
@@ -61,7 +58,7 @@ const updateEvent = async (req, res) => {
   }
 };
 
-const deleteEvent = async (req, res) => {
+export const deleteEvent = async (req, res) => {
   try {
     const { id } = req.params;
     if (!id) return res.status(404).json({ error: 'id must be number' });
@@ -74,12 +71,4 @@ const deleteEvent = async (req, res) => {
       .status(500)
       .json({ error: 'Something Went Wrong Please Try Again' });
   }
-};
-
-module.exports = {
-  createEvent,
-  getEventById,
-  getAllEvents,
-  updateEvent,
-  deleteEvent,
 };

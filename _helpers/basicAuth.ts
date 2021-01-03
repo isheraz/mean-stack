@@ -1,7 +1,4 @@
-import Role from '../models/role';
-import User from '../models/user';
-import UserRole from '../models/userrole';
-import Permission from '../models/permission';
+import { Role, User, UserRole, Permission } from '../models/index';
 
 const checkPermission = (userPermission) => async (req, res, next) => {
   const userId = req.header('userId');

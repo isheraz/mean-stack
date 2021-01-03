@@ -1,10 +1,16 @@
 import { Router } from 'express';
-const router = Router();
-import teamController from '../controllers/team.controller';
+import {
+  getTeam,
+  saveTeam,
+  update,
+  deleteTeam,
+} from '../controllers/team.controller';
 
-router.get('/get', teamController.getTeam);
-router.post('/create', teamController.saveTeam);
-router.put('/update/:id', teamController.update);
-router.delete('/delete/:id', teamController.delete);
+const router = Router();
+
+router.get('/get', getTeam);
+router.post('/create', saveTeam);
+router.put('/update/:id', update);
+router.delete('/delete/:id', deleteTeam);
 
 export default router;

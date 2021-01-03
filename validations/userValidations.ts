@@ -1,11 +1,11 @@
-import  {validationResult}  from 'express-validator';
+import { validationResult } from 'express-validator';
 import { compare } from 'bcrypt';
-import  User from '../models';
+import { User } from '../models';
 import defaultResponse from '../utils/defaultResponse';
 import constants from '../utils/constants';
 import responseStatus from '../utils/responseStatus';
 
-const customRegisterValidation = async (req, res) => {
+export const customRegisterValidation = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     defaultResponse.error({ message: errors }, res, responseStatus.ERROR);
@@ -19,12 +19,12 @@ const customRegisterValidation = async (req, res) => {
       { message: constants.EMAIL_EXIST },
       res,
       responseStatus.ERROR
-    );                                      
+    );
   }
   return false;
 };
 
-const customLoginValidation = async (req, res) => {
+export const customLoginValidation = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     defaultResponse.error({ message: errors }, res, responseStatus.ERROR);
@@ -50,9 +50,4 @@ const customLoginValidation = async (req, res) => {
     res,
     responseStatus.ERROR
   );
-};
-
-export {
-  customRegisterValidation,
-  customLoginValidation,
 };
