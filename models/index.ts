@@ -9,8 +9,8 @@ import TeamModel from './Team';
 import CommentModel from './Comment';
 import EventModel from './Event';
 import UserTeamModel from './UserTeam';
-
 import config from '../config/config.json';
+
 const env = process.env.NODE_ENV || 'development';
 let sequelize;
 if (config[env].use_env_variable) {
