@@ -1,5 +1,4 @@
 import { Sequelize, DataTypes } from 'sequelize';
-
 import BlogModel from './Blog';
 import PermissionModel from './Permission';
 import RoleModel from './Role';
@@ -12,11 +11,8 @@ import EventModel from './Event';
 import UserTeamModel from './UserTeam';
 
 import config from '../config/config.json';
-
 const env = process.env.NODE_ENV || 'development';
-
 let sequelize;
-
 if (config[env].use_env_variable) {
   sequelize = new Sequelize(
     process.env[config[env].use_env_variable],
@@ -54,7 +50,9 @@ db.UserRole.associate(db);
 db.Permission.associate(db);
 db.RoleHasPermission.associate(db);
 db.UserTeam.associate(db);
-
+db.Blog.associate(db);
+db.Team.associate(db);
+db.Comment.associate(db);
 const {
   Blog,
   Permission,

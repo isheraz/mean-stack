@@ -1,22 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
-import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import { EventComponent } from './event/event.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule } from '@angular/material/paginator';
-import { ToastrModule } from 'ngx-toastr';
 import { EventFormComponent } from './event/event-form/event-form.component';
 import { EventViewComponent } from './event/event-view/event-view.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { DeletePopupComponent } from './components/popups/delete-popup/delete-popup.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+
+import { TeamComponent } from './Components/team/team.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+import {FlexModule} from '@angular/flex-layout';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {ToastrModule} from 'ngx-toastr';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {CreateTeamComponent} from './Components/team/create-team/create-team.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {ViewTeamComponent} from './Components/team/view-team/view-team.component';
+import {MatSelectModule} from '@angular/material/select';
+import { CommentsComponent } from './Components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +34,11 @@ import { DeletePopupComponent } from './components/popups/delete-popup/delete-po
     EventComponent,
     EventFormComponent,
     EventViewComponent,
-    DeletePopupComponent
+    DeletePopupComponent,
+    TeamComponent,
+    CreateTeamComponent,
+    ViewTeamComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +53,27 @@ import { DeletePopupComponent } from './components/popups/delete-popup/delete-po
     MatPaginatorModule,
     ToastrModule.forRoot(),
     MatDialogModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    HttpClientModule,
+    MatCardModule,
+    FlexModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    ToastrModule.forRoot(),
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateTeamComponent,
+    ViewTeamComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}
