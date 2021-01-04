@@ -4,8 +4,6 @@ export default (sequelize, DataTypes) => {
   class User extends Model {
     password: string;
 
-    userRole: any;
-
     id: any;
 
     static associate(models) {
@@ -18,6 +16,8 @@ export default (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'Comment',
       });
+
+      User.belongsToMany(models.Team, { through: 'UserTeam' });
     }
   }
   User.init(
@@ -25,7 +25,6 @@ export default (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
-      teamId: DataTypes.INTEGER,
     },
     {
       sequelize,

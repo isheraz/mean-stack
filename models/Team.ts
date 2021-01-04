@@ -3,10 +3,7 @@ import { Model } from 'sequelize';
 export default (sequelize, DataTypes) => {
   class Team extends Model {
     static associate(models) {
-      Team.hasMany(models.User, {
-        foreignKey: 'teamId',
-        as: 'Members',
-      });
+      Team.belongsToMany(models.User, { through: 'UserTeam' });
     }
   }
   Team.init(

@@ -7,6 +7,7 @@ import team from './team.routes';
 import comments from './comment.routes';
 import blog from './blog.routes';
 import events from './event.routes';
+import { checkRole } from '../_helpers/basicAuth';
 
 const router = Router();
 
