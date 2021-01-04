@@ -59,6 +59,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     routingComponent,
     NewBlogComponent,
     BlogComponent,
+    RegisterComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatSortModule,    
     MatSelectModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
+    MatBadgeModule
   ],
   entryComponents: [
     CreateTeamComponent,

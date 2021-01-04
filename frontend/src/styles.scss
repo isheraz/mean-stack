@@ -231,13 +231,73 @@ body {
 
 .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0.8375em 0;
-}
+  body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+  .w-100 {
+    width: 100% !important;
+  }
+  .my-2 {
+    margin: 0.5rem 0.3rem 0.5rem 0.3rem !important;
+  }
+  .mt-5 {
+    margin-top: 1rem;
+  }
+  .mb-5 {
+    margin-bottom: 1rem;
+  }
+  .mb-0 {
+    margin-bottom: 0px !important;
+  }
+  .mb-1 {
+    margin-bottom: 0.2rem !important;
+  }
+  table {
+    width: 100%;
+  }
+  .icons {
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  .text-danger {
+    color: red;
+  }
+  .text-primary {
+    color: blue;
+  }
+  .text-info {
+    color: rgba(18, 228, 217, 0.712) !important;
+  }
+  .d-flex {
+    display: flex;
+  }
+  .justify-content-center {
+    justify-content: center;
+  }
+  .justify-content-between {
+    justify-content: space-between;
+  }
+  .align-items-center {
+    align-items: center;
+  }
+  .font-weight-bold {
+    font-weight: bold;
+  }
+  .font-large {
+    font-size: 1rem !important;
+  }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+  }
 }
