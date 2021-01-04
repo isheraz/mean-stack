@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "samina_zafar",
+    "password": "12345",
+    "database": "js_cms",
     "dialect": "postgres"
   },
   "test": {
