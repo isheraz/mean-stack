@@ -3,7 +3,11 @@ import { Model } from 'sequelize';
 export default (sequelize, DataTypes) => {
   class User extends Model {
     password: string;
+<<<<<<< HEAD
     userRole: any;
+=======
+
+>>>>>>> modified and add new relations also set model associations
     id: any;
 
     name: any;
@@ -29,7 +33,6 @@ export default (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
-      teamId: DataTypes.INTEGER,
     },
     {
       sequelize,

@@ -50,9 +50,13 @@ db.UserRole.associate(db);
 db.Permission.associate(db);
 db.RoleHasPermission.associate(db);
 db.UserTeam.associate(db);
+<<<<<<< HEAD
 db.Blog.associate(db);
 db.Team.associate(db);
 db.Comment.associate(db);
+=======
+
+>>>>>>> modified and add new relations also set model associations
 const {
   Blog,
   Permission,
