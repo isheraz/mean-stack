@@ -20,9 +20,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterService } from './services/register.service';
 
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {FlexModule} from '@angular/flex-layout';
-import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {CreateTeamComponent} from './components/team/create-team/create-team.component';
@@ -30,7 +31,6 @@ import {ViewTeamComponent} from './components/team/view-team/view-team.component
 
 import { NewBlogComponent } from './components/new-blog/new-blog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
@@ -70,6 +70,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatInputModule,
+
     MatButtonModule,
     MatPaginatorModule,
     ToastrModule.forRoot(),

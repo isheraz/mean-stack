@@ -34,7 +34,7 @@ export class BlogComponent implements OnInit {
       }else{
         this.data = [];
       }
-    });
+    }); 
   }
 
   deleteBlog(id: any){
