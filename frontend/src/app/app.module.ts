@@ -36,7 +36,7 @@ import { NewBlogComponent } from './components/new-blog/new-blog.component';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +86,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatSelectModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    ToastrModule.forRoot(), 
   ],
   bootstrap: [AppComponent],
   providers: [

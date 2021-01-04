@@ -1,14 +1,16 @@
 import { BlogService } from './../../services/blog.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
 })
+
 export class BlogComponent implements OnInit {
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private toastr:ToastrService) { }
   data = [
     {'id' : 1, 'title': 'Title of Blog 1', 'description': 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ' , 'status': 0},
     {'id' : 2, 'title': 'Title of Blog 2', 'description': 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ' , 'status': 0},
@@ -28,12 +30,13 @@ export class BlogComponent implements OnInit {
       }else{
         this.data = [];
       }
-    });
+    }); 
   }
 
   deleteBlog(id: any){
     this.blogService.delete(id).subscribe((res: any) => {
         this.getBlogs();
+        this.toastr.success('Blog Deleted Successfully!' , 'Deleted Blog');
     });
   }
 
