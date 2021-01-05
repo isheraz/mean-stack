@@ -97,7 +97,7 @@ export const getAllEvents = async (_req, res) => {
  * @apiGroup Event
  *@apiVersion 0.1.0
  * @apiHeader (Header) {String} authorization Authorization Bearer token
- * @apiParam {Number} id event id is required
+ * @apiParam (Params) {Number} id event id is required
  *@apiSuccessExample Response Body
  *{
  *  "id":1
@@ -146,7 +146,19 @@ export const getEventById = async (req, res) => {
  * @apiGroup Event
  *@apiVersion 0.1.0
  * @apiHeader (Header) {String} authorization Authorization Bearer token
- * @apiParam {Number} id event id is required
+ * @apiParam (Params) {Number} id event id is required
+ * 
+  * @apiParam {String} name Name of the Event
+ * @apiParam {String} venue Place where you organize event
+ * @apiParam {String} desc Description of the event
+ * @apiParam {Date} date Date of the event
+  *@apiParamExample Request Body:
+ *{
+ * "name":"name",
+ * "venue":"location",
+ * "desc":"description",
+ * "date":"2021-01-05T05:29:25.347Z"
+ *}
  *@apiSuccessExample Response Body
  *{
  *  "id":1
@@ -200,7 +212,7 @@ export const updateEvent = async (req, res) => {
  * @apiGroup Event
  *@apiVersion 0.1.0
  * @apiHeader (Header) {String} authorization Authorization Bearer token
- * @apiParam {Number} id event id is required
+ * @apiParam (Params) {Number} id event id is required
  *@apiSuccessExample
  *{
  *  "id":1
