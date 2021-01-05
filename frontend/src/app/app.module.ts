@@ -8,10 +8,10 @@ import { EventViewComponent } from './event/event-view/event-view.component';
 import { DeletePopupComponent } from './components/popups/delete-popup/delete-popup.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {TeamComponent} from './components/team/team.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 
-import { TeamComponent } from './Components/team/team.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {FlexModule} from '@angular/flex-layout';
@@ -22,11 +22,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {ToastrModule} from 'ngx-toastr';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {CreateTeamComponent} from './Components/team/create-team/create-team.component';
+import {CreateTeamComponent} from './components/team/create-team/create-team.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {ViewTeamComponent} from './Components/team/view-team/view-team.component';
+import {ViewTeamComponent} from './components/team/view-team/view-team.component';
 import {MatSelectModule} from '@angular/material/select';
-import { CommentsComponent } from './Components/comments/comments.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [

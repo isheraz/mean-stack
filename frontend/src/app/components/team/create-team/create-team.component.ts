@@ -1,9 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
-import {TeamService} from '../../../Services/TeamService/team.service';
-import {ToastrService} from 'ngx-toastr';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {UserService} from '../../../Services/UserService/user.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { TeamService } from '../../../services/TeamService/team.service';
+import { ToastrService } from 'ngx-toastr';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../../../services/UserService/user.service';
 
 @Component({
   selector: 'app-create-team',
@@ -14,6 +14,7 @@ export class CreateTeamComponent implements OnInit {
 
   teamForm: any;
   userList: any;
+  selectedUsers: any;
 
   constructor(
     private userService: UserService,
@@ -25,15 +26,11 @@ export class CreateTeamComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userList = this.getUserList();
     if (this.data.openAs === 'Update') {
       this.updateForm(this.data.elem);
     } else {
       this.createForm();
-      this.userService.userList().subscribe((res: any) => {
-        if (res.data) {
-          this.userList = res.data.map((one: any) => ({id: one.id, name: one.name, email: one.email}));
-        }
-      });
     }
   }
 
@@ -67,10 +64,14 @@ export class CreateTeamComponent implements OnInit {
   }
 
   updateForm(elem: any): void {
+    let users = [];
+    if (elem.members) {
+      users = elem.members.map((one: any) => one.name);
+    }
     this.teamForm = this.fb.group({
       id: [elem.id, []],
       name: [elem.name, []],
-      members: [elem.members, []]
+      members: [users, []]
     });
     this.userList = elem.Members;
   }
@@ -78,5 +79,13 @@ export class CreateTeamComponent implements OnInit {
   clearForm(): void {
     this.teamForm.get('name').reset();
     this.teamForm.get('members').reset();
+  }
+
+  getUserList(): void {
+    this.userService.userList().subscribe((res: any) => {
+      if (res.data) {
+        this.userList = res.data.map((one: any) => ({ id: one.id, name: one.name, email: one.email }));
+      }
+    });
   }
 }

@@ -14,7 +14,7 @@
 
         <mat-form-field appearance="fill" class="mb-3">
           <mat-label>Members</mat-label>
-          <mat-select formControlName="members" multiple [(value)]="userList.name">
+          <mat-select formControlName="members" multiple>
             <mat-option *ngFor="let one of userList" [value]="one.id">{{one.name}}</mat-option>
           </mat-select>
         </mat-form-field>

@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {TeamService} from '../../Services/TeamService/team.service';
+import {TeamService} from '../../services/TeamService/team.service';
 import {FormBuilder, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {MatPaginator} from '@angular/material/paginator';
