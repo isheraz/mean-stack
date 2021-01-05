@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
-<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventComponent } from './components/event/event.component';
 import { EventFormComponent } from './components/event/event-form/event-form.component';
@@ -19,38 +17,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterService } from './services/register.service';
-
-=======
-<<<<<<< HEAD
-import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EventComponent } from './event/event.component';
->>>>>>> team componenet in progress
 import {MatCardModule} from '@angular/material/card';
-=======
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {TeamComponent} from './components/team/team.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
-import {HttpClientModule} from '@angular/common/http';
-import {MatCardModule} from '@angular/material/card';
-import {FlexModule} from '@angular/flex-layout';
-import {MatButtonModule} from '@angular/material/button';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-import {CreateTeamComponent} from './components/team/create-team/create-team.component';
-import {ViewTeamComponent} from './components/team/view-team/view-team.component';
 
-import { NewBlogComponent } from './components/new-blog/new-blog.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
->>>>>>> team componenet in progress
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {FlexModule} from '@angular/flex-layout';
+import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {CreateTeamComponent} from './components/team/create-team/create-team.component';
@@ -71,6 +42,7 @@ import { BlogComponent } from './components/blog/blog.component';
 
 import { CommentsComponent } from './components/comments/comments.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +70,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-
     MatButtonModule,
     MatPaginatorModule,
     ToastrModule.forRoot(),
@@ -107,7 +78,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     FlexModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule,
     MatSortModule,    
     MatSelectModule,
     AngularMaterialModule,
