@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator';
 
-import { Blog, Comment } from '../models';
+import { Blog, Comment, User } from '../models';
 import validate from '../routes/blog.routes';
 
 const SuccessStatusCode = Blog.MESSAGE.success.statusCode;
@@ -45,6 +45,10 @@ export const Blogs = async (_req, res) => {
       include: {
         model: Comment,
         as: 'Comment',
+        include: {
+          model: User,
+          as: 'User',
+        },
       },
       order: [['id', 'DESC']],
     });

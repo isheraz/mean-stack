@@ -1,4 +1,4 @@
-import { Comment } from '../models';
+import { Comment, User } from '../models';
 import defaultResponse from '../utils/defaultResponse';
 import constants from '../utils/constants';
 import responseStatus from '../utils/responseStatus';
@@ -14,7 +14,7 @@ export const create = async (req, res) => {
         );
 
   try {
-    const comment = await Comment.create(requestBody);
+    const comment: any = await Comment.create(requestBody);
     if (!comment) {
       defaultResponse.error(
         { message: 'Comment is not posted' },
@@ -22,9 +22,18 @@ export const create = async (req, res) => {
         responseStatus.ERROR
       );
     } else {
+      const getComment = await Comment.findOne({
+        where: { id: comment.id },
+        include: [
+          {
+            model: User,
+            as: 'User',
+          },
+        ],
+      });
       defaultResponse.success(
         constants.DATA_SAVED,
-        comment,
+        getComment,
         res,
         responseStatus.SUCCESS
       );

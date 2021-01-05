@@ -2,7 +2,12 @@ import { Model } from 'sequelize';
 
 export default (sequelize, DataTypes) => {
   class Comment extends Model {
-    static associate() {}
+    static associate(models) {
+      Comment.belongsTo(models.User, {
+        foreignKey: 'userId',
+        as: 'User',
+      });
+    }
   }
   Comment.init(
     {
