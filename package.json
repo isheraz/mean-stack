@@ -11,7 +11,8 @@
     "lint:fix": "eslint ./ --ext=js,ts --fix=true --ignore-pattern node_modules/",
     "frontend": "cd frontend && ng serve --open",
     "migrate": "",
-    "start": "tsc && node dist/app.js"
+    "start": "tsc && node dist/app.js",
+    "docs": "npx apidoc -i ./controllers node_modules -o ./docs"
   },
   "repository": {
     "type": "git",
