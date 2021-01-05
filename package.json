@@ -68,6 +68,7 @@
     "typescript": "^4.1.3"
   },
   "husky": {},
+
   "lint-staged": {
     "**/*.ts": [
       "eslint --fix",
