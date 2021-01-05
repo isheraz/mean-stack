@@ -10,7 +10,7 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   getBlogs():Observable<any> {
-    return this.http.get<any>(`${environment.backendRoute}/blog`);
+    return this.http.get<any>(`${environment.backendRoute}/blog/get`);
   }
 
   createBlog(body: any): Observable<any> { 
