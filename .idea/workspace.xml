@@ -2,7 +2,82 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb16741b-bf79-4a2b-8c2a-388cc9c47da0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mean-stack.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api_data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api_data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api_project.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api_project.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/locale.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/pt_br.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/zh.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/locales/zh_cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/utils/handlebars_helper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/utils/send_sample_request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/utils/send_sample_request_utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/diff_match_patch.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/handlebars.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/list.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/lodash.custom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/path-to-regexp/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/path-to-regexp/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/polyfill.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/prism.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/prism.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/require.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/semver.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/vendor/webfontloader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/blog/blog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/blog/blog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/blog/blog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/blog/blog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/new-blog/new-blog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/new-blog/new-blog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/new-blog/new-blog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/new-blog/new-blog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event-form/event-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event-form/event-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event-form/event-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event-form/event-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event-form/event-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event-form/event-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event-view/event-view.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event-view/event-view.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event-view/event-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event-view/event-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event-view/event-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event-view/event-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/event/event.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event/event.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/blog.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/blogService/blog.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/blog.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/blogService/blog.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +108,12 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/app/services/blogService" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/components" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,6 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609935434177</updated>
       <workItem from="1609935437281" duration="1357000" />
+      <workItem from="1609937560258" duration="1844000" />
     </task>
     <servers />
   </component>
