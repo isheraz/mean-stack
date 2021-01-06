@@ -1,4 +1,4 @@
-import { BlogService } from './../../services/blog.service';
+import { BlogService } from '../../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,19 +18,19 @@ interface Statuses {
 export class NewBlogComponent {
   blogForm: any;
   blogId: string = '';
-  status: string = ""; 
+  status: string = "";
   statuses: Statuses[] = [
     {value: '1', viewValue: 'Active'},
     {value: '0', viewValue: 'In-Active'}
   ];
 
   constructor(private service: BlogService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private toastr:ToastrService){};
-  
+
   ngOnInit() {
     this.createForm();
   };
-  createForm() { 
-    
+  createForm() {
+
     this.route.params.subscribe(params => {
       this.blogId = params['id'];
     });
@@ -42,16 +42,16 @@ export class NewBlogComponent {
     });
 
     if(this.blogId != undefined){
-       this.getBlogById(this.blogId); 
+       this.getBlogById(this.blogId);
     }
 
   }
 
   createBlog() {
-    let body = this.blogForm.value; 
+    let body = this.blogForm.value;
     let user: any = sessionStorage.getItem('User');
     let userId = user ? user.id : 1;
-    body= {...body, userId} 
+    body= {...body, userId}
 
     if (body.id) {
       const id = body.id;
@@ -60,7 +60,7 @@ export class NewBlogComponent {
         if (res.data) {
           this.router.navigateByUrl('/blog');
           this.toastr.success('Blog Created Successfully!' , 'Created Blog');
-        }else{ 
+        }else{
           this.toastr.error('Blog Created Failed!' , 'Created Blog');
         }
       });
