@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EventComponent } from './event/event.component';
-import { EventFormComponent } from './event/event-form/event-form.component';
-import { EventViewComponent } from './event/event-view/event-view.component';
+import { EventComponent } from './components/event/event.component';
+import { EventFormComponent } from './components/event/event-form/event-form.component';
+import { EventViewComponent } from './components/event/event-view/event-view.component';
 import { DeletePopupComponent } from './components/popups/delete-popup/delete-popup.component';
 import {AppRoutingModule, routingComponent} from './app-routing.module';
 import {AppComponent} from './app.component';

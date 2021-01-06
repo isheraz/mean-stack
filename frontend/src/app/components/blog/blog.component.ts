@@ -1,5 +1,5 @@
 import { MatDialog } from '@angular/material/dialog';
-import { BlogService } from './../../services/blog.service';
+import { BlogService } from '../../services/blogService/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import {CommentsComponent} from '../comments/comments.component';
@@ -19,14 +19,14 @@ export class BlogComponent implements OnInit {
     {'id' : 3, 'title': 'Title of Blog 3', 'description': 'Description of the Blog 3' , 'status': 0},
     {'id' : 4, 'title': 'Title of Blog 4', 'description': 'Description of the Blog 3' , 'status': 0},
     {'id' : 5, 'title': 'Title of Blog 5', 'description': 'Description of the Blog 3' , 'status': 0},
-  
+
   ];
- 
+
   ngOnInit(): void {
-    this.getBlogs(); 
-      
+    this.getBlogs();
+
   }
- 
+
   getBlogs() {
     this.blogService.getBlogs().subscribe((res: any) => {
       if (res.data) {
@@ -34,7 +34,7 @@ export class BlogComponent implements OnInit {
       }else{
         this.data = [];
       }
-    }); 
+    });
   }
 
   deleteBlog(id: any){

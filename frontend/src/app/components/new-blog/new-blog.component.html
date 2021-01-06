@@ -1,4 +1,4 @@
- 
+
  <!-- <mat-card class=""> -->
      <div fxLayout="row" fxLayoutAlign="center center">
          <div fxFlex="48" style="border: blue 1px solid; padding:1rem">
@@ -7,25 +7,25 @@
             <mat-label>Title</mat-label>
             <input matInput formControlName="title">
             </mat-form-field>
-        
+
             <mat-form-field style="width: 100%;">
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description"></textarea>
             </mat-form-field>
-  
+
             <mat-form-field appearance="fill">
             <mat-label>Status</mat-label>
             <mat-select formControlName="status">
                 <mat-option *ngFor="let status of statuses" [value]="status.value">
-                {{status.viewValue}} 
+                {{status.viewValue}}
                 </mat-option>
             </mat-select>
             </mat-form-field>
 
                 <div style="text-align: center;">
-                <button type="submit"s mat-flat-button color="primary">Submit</button>
+                <button type="submit" mat-flat-button color="primary">Submit</button>
             </div>
-        </form> 
+        </form>
     </div>
      </div>
     <!-- </mat-card> -->

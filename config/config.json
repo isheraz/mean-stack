@@ -1,7 +1,12 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "admin",
     "password": "admin",
+=======
+    "username": "postgres",
+    "password": "root",
+>>>>>>> rebased with models-names branch
     "database": "js_cms",
     "host": "127.0.0.1",
     "dialect": "postgres"

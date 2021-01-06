@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import {MatDialog} from '@angular/material/dialog';
 import { EventViewComponent } from './event-view/event-view.component';
 import { EventFormComponent } from './event-form/event-form.component';
-import { DeletePopupComponent } from '../components/popups/delete-popup/delete-popup.component';
+import { DeletePopupComponent } from '../popups/delete-popup/delete-popup.component';
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -65,5 +65,5 @@ export class EventComponent implements OnInit {
       }
     })
   }
- 
+
 }

@@ -1,7 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
-/* @import "~bootstrap/dist/css/bootstrap.css"; */
-
 html,
 body {
   height: 100%;
@@ -301,6 +297,68 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+.container {
+  width: 80%;
+  margin: auto;
+}
+.my-2 {
+  margin: 0.5rem 0.3rem 0.5rem 0.3rem !important;
+}
+.mt-5 {
+  margin-top: 1rem;
+}
+.mb-5 {
+  margin-bottom: 1rem;
+}
+.mb-0 {
+  margin-bottom: 0px !important;
+}
+.mb-1 {
+  margin-bottom: 0.2rem !important;
+}
+table {
+  width: 100%;
+}
+.icons {
+  cursor: pointer;
+  margin: 0 10px;
+}
+.text-danger {
+  color: red;
+}
+.text-primary {
+  color: blue;
+}
+.text-info {
+  color: rgba(18, 228, 217, 0.712) !important;
+}
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+.font-weight-bold {
+  font-weight: bold;
+}
+.font-large {
+  font-size: 1rem !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
 .my-5 {
   margin-bottom: 3rem !important;
@@ -319,14 +377,6 @@ body {
   color: white;
 }
 
-.container {
-  width: 90%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .w-100 {
   width: 100% !important;
 }
@@ -335,20 +385,8 @@ body {
   padding-left: 3rem !important;
 }
 
-.text-danger {
-  color: #dc3545;
-}
-
 .mr-5 {
   margin-right: 3rem !important;
-}
-
-.text-primary {
-  color: #007bff;
-}
-
-.text-info {
-  color: #17a2b8;
 }
 
 html,
@@ -397,5 +435,11 @@ body {
   padding: 1rem !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
