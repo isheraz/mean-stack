@@ -15,6 +15,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+<<<<<<< HEAD
+=======
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+>>>>>>> authentication-components branch is merged
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -37,6 +42,18 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { BlogComponent } from './components/blog/blog.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { EventFormComponent } from './components/event/event-form/event-form.component';
+import { EventViewComponent } from './components/event/event-view/event-view.component';
+import { EventComponent } from './components/event/event.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NewBlogComponent } from './components/new-blog/new-blog.component';
+import { DeletePopupComponent } from './components/popups/delete-popup/delete-popup.component';
+import { CreateTeamComponent } from './components/team/create-team/create-team.component';
+import { ViewTeamComponent } from './components/team/view-team/view-team.component';
+import { TeamComponent } from './components/team/team.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -62,7 +79,22 @@ import {MatDialogModule} from '@angular/material/dialog';
     BlogComponent,
     RegisterComponent,
     HomeComponent,
+<<<<<<< HEAD
     LoginComponent
+=======
+    LoginComponent,
+    BlogComponent,
+    CommentsComponent,
+    EventFormComponent,
+    EventViewComponent,
+    EventComponent,
+    HeaderComponent,
+    NewBlogComponent,
+    DeletePopupComponent,
+    CreateTeamComponent,
+    ViewTeamComponent,
+    TeamComponent
+>>>>>>> authentication-components branch is merged
   ],
   imports: [
     BrowserModule,
@@ -84,6 +116,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     AngularMaterialModule,
     FlexLayoutModule,
+<<<<<<< HEAD
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
@@ -98,6 +131,9 @@ import {MatDialogModule} from '@angular/material/dialog';
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     RegisterService
+=======
+    ToastrModule.forRoot(),
+>>>>>>> authentication-components branch is merged
   ],
   
 })

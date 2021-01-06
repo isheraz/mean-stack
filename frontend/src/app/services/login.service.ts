@@ -11,6 +11,6 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   submitLogin(input:object):Observable<any>{
-    return this.http.post<any>(environment.URL + '/api/login' , input);
+    return this.http.post<any>(environment.backendRoute + '/api/login' , input);
   }
 }

@@ -9,9 +9,9 @@ import { environment } from '../../environments/environment';
 export class RegisterService {
 
   constructor(private http: HttpClient) { }
-  
+
   submitRegister(input:object): Observable<any> {
-    return this.http.post<any>(environment.URL + '/api/register' , input);
+    return this.http.post<any>(environment.backendRoute + '/api/register' , input);
   }
 
 }
