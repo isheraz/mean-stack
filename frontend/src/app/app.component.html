@@ -1,7 +1,7 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="app-header">
   <div>
-    <a routerLink="login" class="positronx">CMS</a>
+    <a routerLink="home" class="positronx">CMS</a>
   </div>
   <div *ngIf="loggedIn()">
     <a mat-button routerLink="blog"> Blogs </a>
@@ -17,4 +17,6 @@
   </span>
 </mat-toolbar>
 
+<div class='my-5 p-3'>
 <router-outlet></router-outlet>
+</div>

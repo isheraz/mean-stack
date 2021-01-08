@@ -47,10 +47,10 @@ export const Blogs = async (_req, res) => {
         as: 'Comment',
         include: {
           model: User,
-          as: 'User',
-        },
+          as: 'User'
+        }
       },
-      order: [['id', 'DESC']],
+      order: [['id', 'DESC']]
     });
     res.status(SuccessStatusCode).json({ data: blogs });
   } catch (err) {
@@ -123,16 +123,16 @@ export const saveBlog = async (req, res) => {
       res.status(INVALIDSTATUSCODE).json({ errors: errors.array() });
       return;
     }
-
+    console.log(req.user);
     const newBlog = await Blog.create({
       title: req.body.title,
       description: req.body.description,
-      userId: req.body.userId,
+      userId: Number(req.user.id),
       status: req.body.status,
     });
     res.json({ data: newBlog });
   } catch (err) {
-    res.json({ data: ERRORMESSAGE });
+    res.json({ data: err.message });
   }
 };
 /**
@@ -183,7 +183,7 @@ export const getBlog = async (req, res) => {
 /**
  * @api {put} /blog/update/:id update blog
  * @apiName update
-  * @apiGroup Blog
+ * @apiGroup Blog
  *@apiVersion 0.1.0
  * @apiHeader (Header) {String} authorization Authorization Bearer token
  *
@@ -191,7 +191,7 @@ export const getBlog = async (req, res) => {
  * @apiParam {Number} userId userId of the Blog
  * @apiParam {String} description Description of the blog
  * @apiParam {Number} status Status of Blog (0|1)
-  *@apiParamExample Request Body:
+ *@apiParamExample Request Body:
  *{
  * "title":"name",
  * "userId":1,
@@ -200,15 +200,15 @@ export const getBlog = async (req, res) => {
  *}
  *@apiSuccessExample Response Body
  *{
-  *  "data": {
-   *     "id": 5,
-   *     "title": "title of the blog",
-  *    "description": "description of the blog",
-  *    "userId": 1,
-  *    "status": 1,
-  *    "updatedAt": "2021-01-05T07:01:49.644Z",
-  *    "createdAt": "2021-01-05T07:01:49.644Z",
-  *    "deletedAt": null
+ *  "data": {
+ *     "id": 5,
+ *     "title": "title of the blog",
+ *    "description": "description of the blog",
+ *    "userId": 1,
+ *    "status": 1,
+ *    "updatedAt": "2021-01-05T07:01:49.644Z",
+ *    "createdAt": "2021-01-05T07:01:49.644Z",
+ *    "deletedAt": null
     }
 }
  *
@@ -247,7 +247,7 @@ export const update = async (req, res) => {
         title: req.body.title,
         description: req.body.description,
         userId: req.body.userId,
-        status: req.body.status,
+        status: req.body.status
       },
       { where: { id: req.params.id } }
     );
@@ -296,8 +296,8 @@ export const deleteBlog = async (req, res) => {
     }
     await Blog.destroy({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
     res.status(SuccessStatusCode).json({ data: SuccessDELETEMESSAGE });
   } catch (err) {

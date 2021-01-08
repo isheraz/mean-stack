@@ -16,7 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterService } from './services/register.service';
+import { RegisterService } from './services/RegisterService/register.service';
 import {MatCardModule} from '@angular/material/card';
 
 import {MatTableModule} from '@angular/material/table';

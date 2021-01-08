@@ -14,7 +14,9 @@ export class CreateTeamComponent implements OnInit {
 
   teamForm: any;
   userList: any;
-  selectedUsers: any;
+  selectedUsers: any[] = [];
+  filteredUsers: any[] = [];
+
 
   constructor(
     private userService: UserService,
@@ -26,23 +28,30 @@ export class CreateTeamComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userList = this.getUserList();
-    if (this.data.openAs === 'Update') {
-      this.updateForm(this.data.elem);
-    } else {
-      this.createForm();
-    }
+    this.createForm();
+    this.userService.userList().subscribe((res: any) => {
+      if (res.data) {
+        this.userList = res.data.map((one: any) => ({ id: one.id, name: one.name, email: one.email }));
+        if (this.data.openAs === 'Update') {
+          this.updateForm(this.data.elem);
+        } else {
+          this.filteredUsers = this.userList;
+        }
+      }
+    });
   }
 
   createForm(): void {
     this.teamForm = this.fb.group({
       id: [, []],
       name: ['', [Validators.required]],
-      members: [[], []]
+      users: [[], []]
     });
   }
 
   saveTeam(): void {
+    const usrs = this.selectedUsers.length ? this.selectedUsers.map((one: any) => one.id) : [];
+    this.teamForm.get('users').setValue(usrs);
     const values = this.teamForm.value;
     if (values.id) {
       const id = values.id;
@@ -54,7 +63,9 @@ export class CreateTeamComponent implements OnInit {
         }
       });
     } else {
-      this.teamService.createTeam(this.teamForm.value).subscribe((res: any) => {
+      const body = this.teamForm.value;
+      delete body.id;
+      this.teamService.createTeam(body).subscribe((res: any) => {
         if (res.data) {
           this.toaster.success('Team is created', 'Success');
         }
@@ -64,28 +75,37 @@ export class CreateTeamComponent implements OnInit {
   }
 
   updateForm(elem: any): void {
-    let users = [];
-    if (elem.members) {
-      users = elem.members.map((one: any) => one.name);
-    }
-    this.teamForm = this.fb.group({
-      id: [elem.id, []],
-      name: [elem.name, []],
-      members: [users, []]
-    });
-    this.userList = elem.Members;
+    this.teamForm.get('id').setValue(elem.id);
+    this.teamForm.get('name').setValue(elem.name);
+    this.selectedUsers = elem.Users;
+    this.filterLists();
   }
 
   clearForm(): void {
     this.teamForm.get('name').reset();
-    this.teamForm.get('members').reset();
+    this.teamForm.get('users').reset();
+    this.selectedUsers = [];
+    this.filterLists();
   }
 
-  getUserList(): void {
-    this.userService.userList().subscribe((res: any) => {
-      if (res.data) {
-        this.userList = res.data.map((one: any) => ({ id: one.id, name: one.name, email: one.email }));
+  updateTeam() {
+    this.selectedUsers = this.teamForm.get('users').value.length ? [...this.selectedUsers, ...this.teamForm.get('users').value] : this.selectedUsers;
+    this.filterLists();
+  }
+
+  filterLists() {
+    this.teamForm.get('users').reset();
+    this.filteredUsers = [];
+    this.userList.forEach((usr: any) => {
+      const user = this.selectedUsers.find((one: any) => (one.id === usr.id));
+      if (!user) {
+        this.filteredUsers.push(usr);
       }
     });
+  }
+
+  removeUser(id: any) {
+    this.selectedUsers = this.selectedUsers.filter((one: any) => one.id !== id);
+    this.filterLists();
   }
 }

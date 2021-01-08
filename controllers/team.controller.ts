@@ -7,7 +7,10 @@ import responseStatus from '../utils/responseStatus';
 export const getTeam = async (_req: any, res: any) => {
   try {
     const team = await Team.findAll({
-      include: { model: User, as: 'Members' },
+      include: {
+        model: User,
+        as: 'Users',
+      },
     });
     if (team) {
       defaultResponse.success(
@@ -32,6 +35,7 @@ export const getTeam = async (_req: any, res: any) => {
     );
   }
 };
+
 export const saveTeam = async (req: { body: any }, res: any) => {
   try {
     const requestBody =
@@ -42,24 +46,24 @@ export const saveTeam = async (req: { body: any }, res: any) => {
             res,
             responseStatus.INVALID_BODY
           );
-
-    const team = Team.create({ name: requestBody.name }).then((user) => {
-      user.setUsers(requestBody.users).then((userTeam) => userTeam);
+    Team.create({ name: requestBody.name }).then((user) => {
+      user.setUsers(requestBody.users).then((userTeam) => {
+        if (user) {
+          defaultResponse.success(
+            constants.DATA_SAVED,
+            user,
+            res,
+            responseStatus.SUCCESS
+          );
+        } else {
+          defaultResponse.error(
+            constants.DATA_NOT_FOUND,
+            res,
+            responseStatus.ERROR
+          );
+        }
+      });
     });
-    if (team) {
-      defaultResponse.success(
-        constants.DATA_SAVED,
-        team,
-        res,
-        responseStatus.SUCCESS
-      );
-    } else {
-      defaultResponse.error(
-        constants.DATA_NOT_FOUND,
-        res,
-        responseStatus.ERROR
-      );
-    }
   } catch (exception) {
     defaultResponse.error(
       { message: exception.message },
@@ -75,25 +79,29 @@ export const update = async (
 ) => {
   try {
     if (req.body) {
-      const team = await Team.update(req.body, {
+      Team.update(req.body, {
         where: { id: req.params.id },
         returning: true,
-        // plain: true,
+        plain: true,
+      }).then((user) => {
+        console.log(user);
+        user[1].setUsers(req.body.users).then((userTeam) => {
+          if (user) {
+            defaultResponse.success(
+              constants.DATA_UPDATED,
+              user,
+              res,
+              responseStatus.SUCCESS
+            );
+          } else {
+            defaultResponse.error(
+              constants.DATA_NOT_FOUND,
+              res,
+              responseStatus.ERROR
+            );
+          }
+        });
       });
-      if (team) {
-        defaultResponse.success(
-          constants.DATA_UPDATED,
-          team,
-          res,
-          responseStatus.SUCCESS
-        );
-      } else {
-        defaultResponse.error(
-          constants.DATA_NOT_FOUND,
-          res,
-          responseStatus.ERROR
-        );
-      }
     }
   } catch (exception) {
     defaultResponse.error(

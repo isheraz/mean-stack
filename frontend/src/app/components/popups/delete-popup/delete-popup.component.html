@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Confirm</h1>
-<div mat-dialog-content class="font-large">You are sure want to Delete Event ({{data.name}})</div>
+<div mat-dialog-content class="font-large">You are sure want to Delete this {{data.openFor}}: {{data.name}}</div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
   <button mat-raised-button color="warn" (click)="onDeleteHandler()">Delete</button>

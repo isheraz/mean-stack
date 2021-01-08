@@ -14,6 +14,7 @@ export const create = async (req, res) => {
         );
 
   try {
+    requestBody.userId = req.user.id;
     const comment: any = await Comment.create(requestBody);
     if (!comment) {
       defaultResponse.error(
@@ -79,23 +80,23 @@ export const update = async (req, res) => {
     req.body != null
       ? req.body
       : defaultResponse.error(
-          { message: constants.INVALID_BODY },
-          res,
-          responseStatus.INVALID_BODY
-        );
+      { message: constants.INVALID_BODY },
+      res,
+      responseStatus.INVALID_BODY
+      );
 
   const id =
     req.params.id != null
       ? req.params.id
       : defaultResponse.error(
-          { message: 'Params are Missing' },
-          res,
-          responseStatus.INVALID_BODY
-        );
+      { message: 'Params are Missing' },
+      res,
+      responseStatus.INVALID_BODY
+      );
   try {
     const comment = await Comment.update(requestBody, {
       where: { id },
-      returning: true,
+      returning: true
       // plain: true,
     });
     if (!comment)
@@ -125,13 +126,13 @@ export const deleteComment = async (req, res) => {
     req.params.id != null
       ? req.params.id
       : defaultResponse.error(
-          { message: 'Params are Missing' },
-          res,
-          responseStatus.INVALID_BODY
-        );
+      { message: 'Params are Missing' },
+      res,
+      responseStatus.INVALID_BODY
+      );
   try {
     const comment = await Comment.destroy({
-      where: { id },
+      where: { id }
       // returning: true,
       // plain: true,
     });

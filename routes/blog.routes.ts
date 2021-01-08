@@ -16,7 +16,6 @@ const validate = (method) => {
   return [
     body('title').notEmpty(),
     body('description').notEmpty(),
-    body('userId').isInt().notEmpty(),
     body('status').isInt().notEmpty(),
   ];
 };

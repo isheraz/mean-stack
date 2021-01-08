@@ -12,10 +12,8 @@ export default (req, res, next) => {
       responseStatus.NO_TOKEN
     );
   }
-  const token = getToken.split(' ')[1];
   try {
-    const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-    req.user = verified;
+    req.user = jwt.verify(getToken, process.env.TOKEN_SECRET);
     next();
   } catch (error) {
     defaultResponse.error(

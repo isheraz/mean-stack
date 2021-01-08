@@ -20,8 +20,7 @@ export default (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'Comment',
       });
-
-      User.belongsToMany(models.Team, { through: 'UserTeam' });
+      User.belongsToMany(models.Team,{ through: 'UserTeam' });
     }
   }
   User.init(
