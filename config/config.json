@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "admin",
-    "password": "123",
-    "database": "basic_node",
+    "username": "postgres",
+    "password": "12345",
+    "database": "js_cms",
     "dialect": "postgres"
   },
   "test": {

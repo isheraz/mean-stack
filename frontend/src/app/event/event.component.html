@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center my-2">
+      <h2 class="mb-0 ">Events</h2>
+      <button type="button" (click)="onAddEvent()" mat-raised-button color="primary">Add Event</button>
+    </div>
+    <div class="mt-2">
+        <table mat-table [dataSource]="events" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name.substring(0,20)}} <span *ngIf="element.name.length>20">...</span> </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="venue">
+    <th mat-header-cell *matHeaderCellDef> Venue </th>
+    <td mat-cell *matCellDef="let element"> {{element.venue}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="desc">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.desc.substring(0,70)}}<span *ngIf="element.desc.length>70">...</span> </td>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element"> 
+      <span class="material-icons icons text-primary" (click)="onUpdateEventHandler(element)">
+        create
+        </span>  
+        <span class="material-icons icons text-danger" (click)="onDeleteHandler(element)">
+          delete
+          </span>
+          <span class="material-icons icons text-info" (click)="onViewEventHandler(element)">
+            remove_red_eye
+            </span>
+    </td>
+  </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator class="mat-table mat-elevation-z8 " [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    </div>
+
+    
+
+</div>
