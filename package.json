@@ -11,7 +11,8 @@
     "lint:fix": "eslint ./ --ext=js,ts --fix=true --ignore-pattern node_modules/",
     "frontend": "cd frontend && ng serve --open",
     "migrate": "",
-    "start": "tsc && node dist/app.js"
+    "start": "tsc && node dist/app.js",
+    "docs": "npx apidoc -i ./controllers node_modules -o ./docs"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "@types/node": "^14.14.19",
     "@types/validator": "^13.1.2",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "apidoc": "^0.25.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
