@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import role from './role.routes';
 import permission from './permission.routes';
 import userRoutes from './user.routes';
@@ -7,7 +6,7 @@ import team from './team.routes';
 import comments from './comment.routes';
 import blog from './blog.routes';
 import events from './event.routes';
-import { checkRole } from '../_helpers/basicAuth';
+import authToken from '../utils/apiToken';
 
 const router = Router();
 
@@ -16,11 +15,11 @@ const routes = () => {
     res.json({ message: `Server is running on ${process.env.PORT}` });
   });
   router.use('/role', role);
-  router.use('/permission', permission);
-  router.use('/team', team);
-  router.use('/comment', comments);
-  router.use('/event', events);
-  router.use('/blog', blog);
+  router.use('/permission', authToken, permission);
+  router.use('/team', authToken, team);
+  router.use('/comment', authToken, comments);
+  router.use('/event', authToken, events);
+  router.use('/blog', authToken, blog);
   router.use(userRoutes);
   return router;
 };

@@ -1,5 +1,4 @@
 import { hash } from 'bcrypt';
-
 import { DefaultRoleId } from '../constants';
 import { User as userModel, UserRole } from '../models';
 import * as validations from '../validations/userValidations';
@@ -120,7 +119,6 @@ export const login = async (req, res) => {
     defaultResponse.error({ message: err.message }, res, responseStatus.ERROR);
   }
 };
-
 
 /**
  * @api {get} /users All Users
