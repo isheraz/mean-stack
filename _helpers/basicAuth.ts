@@ -1,7 +1,7 @@
-import { Role, User, UserRole, Permission } from '../models/index';
+import { Role, User, UserRole, Permission } from '../models';
 
 const checkPermission = (userPermission) => async (req, res, next) => {
-  const userId = req.header('userId');
+  const userId = req.user.id;
   const user = await User.findOne({
     where: { id: userId },
     include: [
@@ -43,7 +43,7 @@ const checkPermission = (userPermission) => async (req, res, next) => {
 };
 
 const checkRole = (userRole) => async (req, res, next) => {
-  const userId = req.header('userId');
+  const userId = req.user.id;
   const user = await User.findOne({
     where: { id: userId },
     include: [
@@ -53,6 +53,7 @@ const checkRole = (userRole) => async (req, res, next) => {
       },
     ],
   });
+
   if (!user) return res.status(403).send('User not found.');
 
   const userRoleId = user.userRole ? user.userRole.roleId : null;
@@ -67,11 +68,7 @@ const checkRole = (userRole) => async (req, res, next) => {
   if (!isHasRole)
     return res.status(403).send('You have no access to this page.');
 
-  next();
-  return true;
+  return next();
 };
 
-export default {
-  checkPermission,
-  checkRole,
-};
+export { checkPermission, checkRole };

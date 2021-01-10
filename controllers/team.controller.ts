@@ -32,7 +32,6 @@ export const getTeam = async (_req: any, res: any) => {
     );
   }
 };
-
 export const saveTeam = async (req: { body: any }, res: any) => {
   try {
     const requestBody =
@@ -43,7 +42,10 @@ export const saveTeam = async (req: { body: any }, res: any) => {
             res,
             responseStatus.INVALID_BODY
           );
-    const team = await Team.create(requestBody);
+
+    const team = Team.create({ name: requestBody.name }).then((user) => {
+      user.setUsers(requestBody.users).then((userTeam) => userTeam);
+    });
     if (team) {
       defaultResponse.success(
         constants.DATA_SAVED,

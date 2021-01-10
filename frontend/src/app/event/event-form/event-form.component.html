@@ -1,0 +1,36 @@
+<div class="d-flex align-items-center flex-column">
+    <form class="example-form1 mt-5 p-1 w-100" >
+        <h3 mat-dialog-title>Event Form</h3>
+        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{error}}
+          </div>
+        <div class="w-100">
+         <mat-form-field class="w-100">
+             <mat-label>Event Name</mat-label>
+             <input required matInput placeholder="Event Name" [value]="eventName" name="name" (input)="onUpdateHandler($event)">
+           </mat-form-field>
+        </div>
+        <div class="w-100">
+         <mat-form-field  class="w-100">
+             <mat-label>Venue</mat-label>
+             <input required matInput placeholder="Venue" [value]="venue" name="venue" (input)="onUpdateHandler($event)">
+           </mat-form-field>
+        </div>
+       <div>
+         <mat-form-field class="w-100">
+             <mat-label>Description</mat-label>
+             <textarea required matInput rows="4" placeholder="Description ..." [value]="desc" name="desc" (input)="onUpdateHandler($event)" ></textarea>
+             <mat-hint align="end">{{desc.length}} / 500</mat-hint>
+            </mat-form-field>
+       </div>
+       <div class="mb-5">
+         <mat-form-field class="w-100">
+             <mat-label>Date</mat-label>
+             <input required type="datetime-local" matInput placeholder="Date" [value]="date" name="date" (input)="onUpdateHandler($event)">
+           </mat-form-field>
+        </div>
+        <button type="button" (click)="submitHandler()" *ngIf="id===0"  mat-raised-button color="primary">Submit</button>
+        <button type="button" (click)="submitHandler()" *ngIf="id>0"  mat-raised-button color="primary">Edit</button>
+        <button type="button" mat-dialog-close mat-raised-button>Close</button>
+      </form>
+</div>

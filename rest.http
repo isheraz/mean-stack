@@ -1,4 +1,4 @@
-GET http://127.0.0.1:8000/event/getAllEvents
+GET http://127.0.0.1:3000/api/event/getAllEvents
 Content-Type: application/json
 
 ###
@@ -7,7 +7,7 @@ Content-Type: application/json
 
 { 
       
-    "name":"test",
+
     "venue":"Lahore",
     "date": "2020-12-23T05:46:01.776Z",
     "desc": "lorem Ipsum"

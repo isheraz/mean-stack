@@ -121,6 +121,7 @@ export const login = async (req, res) => {
   }
 };
 
+
 /**
  * @api {get} /users All Users
  * @apiName AllUser
@@ -171,3 +172,18 @@ export const login = async (req, res) => {
  *    ]
  * }
  */
+export const allUsers = async (_req, res) => {
+  try {
+    const users = await userModel.findAll();
+    if (users) {
+      defaultResponse.success(
+        constants.DATA_RETRIEVED,
+        users,
+        res,
+        responseStatus.SUCCESS
+      );
+    }
+  } catch (err) {
+    defaultResponse.error({ message: err.message }, res, responseStatus.ERROR);
+  }
+};
