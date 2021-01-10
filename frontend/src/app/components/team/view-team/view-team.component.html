@@ -1,0 +1,15 @@
+<div class="text-right">
+  <span style="cursor: pointer" mat-dialog-close class="material-icons">close</span>
+</div>
+
+<div>
+  <h2 class="text-center"><b>{{data.name}}</b></h2>
+  <div class="my-3" *ngIf="data.Members.length">
+    <ul *ngFor="let one of data.Members">
+      <li>{{one.name}}</li>
+    </ul>
+  </div>
+  <div class="text-center">
+  <button mat-dialog-close mat-raised-button color="primary">Close</button>
+  </div>
+</div>

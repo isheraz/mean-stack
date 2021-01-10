@@ -39,3 +39,19 @@ export const login = async (req, res) => {
     defaultResponse.error({ message: err.message }, res, responseStatus.ERROR);
   }
 };
+
+export const allUsers = async (_req, res) => {
+  try {
+    const users = await userModel.findAll();
+    if (users) {
+      defaultResponse.success(
+        constants.DATA_RETRIEVED,
+        users,
+        res,
+        responseStatus.SUCCESS
+      );
+    }
+  } catch (err) {
+    defaultResponse.error({ message: err.message }, res, responseStatus.ERROR);
+  }
+};
