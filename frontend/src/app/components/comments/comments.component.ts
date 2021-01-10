@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { CommentService } from './../../services/commentService/comment.service';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog'
+import {FormControl} from '@angular/forms'
 
 @Component({
   selector: 'app-comments',
@@ -10,20 +13,38 @@ export class CommentsComponent implements OnInit {
   comments = [
     {
       id: 1,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      username: 'jhon'
-    },
-    {id: 2, text: 'Integer rhoncus interdum nulla eget tempor. Mauris vitae magna ac erat venenatis lacinia a at risus.', username: 'Bob'},
-    {id: 3, text: 'In vitae porta elit. Praesent ac risus ut mi efficitur tempus ac placerat orci.', username: 'Lily'},
-    {id: 4, text: 'Aliquam ut arcu at sem sollicitudin accumsan dignissim eu massa.', username: 'jhon'},
-    {id: 5, text: 'In laoreet iaculis sem. Nullam id lobortis nisi.', username: 'Bob'},
-    {id: 6, text: 'Suspendisse potenti.', username: 'Lily'},
+      text: '',
+      User: {
+        'name' :''
+      }
+    }
   ];
 
-  constructor() {
+  name = new FormControl('');
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,  private commentService:CommentService) {
   }
 
   ngOnInit(): void {
+    this.comments = this.data.Comment; 
   }
 
+  addComment(){
+      if(this.name){
+        const comment = this.name.value;
+        const userId = sessionStorage.getItem("user.id");
+      this.commentService.createComment({'text': comment, 'userId': 1, 'blogId': this.data.id }).subscribe(res=>{
+        this.name = new FormControl('');
+        this.comments.push(res.data);
+      });
+    }
+  }
+
+  deleteComment(id: any){
+    this.commentService.deleteComment(id).subscribe(res=>{ 
+     this.comments = this.comments.filter((val) => val.id !== id);
+    });
+
+  }
+ 
 }
