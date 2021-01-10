@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/isheraz/mean-stack#readme",
   "dependencies": {
+    "apidoc": "^0.25.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
