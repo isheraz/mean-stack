@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'team', component: TeamComponent },
   { path: 'event', component: EventComponent },
-  { path: 'pwa', component: PwaWorkComponent },
+  // { path: 'pwa', component: PwaWorkComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

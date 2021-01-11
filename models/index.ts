@@ -40,7 +40,6 @@ const db: any = {
   Comment: CommentModel(sequelize, DataTypes),
   UserTeam: UserTeamModel(sequelize, DataTypes),
   Event: EventModel(sequelize, DataTypes),
-  UserTeam: UserTeamModel(sequelize, DataTypes),
 };
 
 db.Blog.associate(db);
@@ -51,10 +50,7 @@ db.UserRole.associate(db);
 db.Permission.associate(db);
 db.RoleHasPermission.associate(db);
 db.UserTeam.associate(db);
-db.Blog.associate(db);
-db.Team.associate(db);
 // db.User.associate(db);
-db.Comment.associate(db);
 const {
   Blog,
   Permission,
