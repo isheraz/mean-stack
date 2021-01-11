@@ -147,12 +147,12 @@ export const getEventById = async (req, res) => {
  *@apiVersion 0.1.0
  * @apiHeader (Header) {String} authorization Authorization Bearer token
  * @apiParam (Params) {Number} id event id is required
- * 
-  * @apiParam {String} name Name of the Event
+ *
+ * @apiParam {String} name Name of the Event
  * @apiParam {String} venue Place where you organize event
  * @apiParam {String} desc Description of the event
  * @apiParam {Date} date Date of the event
-  *@apiParamExample Request Body:
+ *@apiParamExample Request Body:
  *{
  * "name":"name",
  * "venue":"location",

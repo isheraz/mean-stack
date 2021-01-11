@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TeamComponent } from './components/team/team.component';
 import { EventComponent } from './components/event/event.component';
+import { PwaWorkComponent } from './components/pwa-work/pwa-work.component';
 
 const routes: Routes = [
   { path: 'blog', component: BlogComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'team', component: TeamComponent },
   { path: 'event', component: EventComponent },
+  { path: 'pwa', component: PwaWorkComponent },
   { path: '**', redirectTo: 'home' }
 ];
 
