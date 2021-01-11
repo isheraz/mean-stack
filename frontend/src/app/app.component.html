@@ -1,12 +1,13 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="app-header">
   <div>
-    <a routerLink="login" class="positronx">CMS</a>
+    <a routerLink="home" class="positronx">CMS</a>
   </div>
   <div *ngIf="loggedIn()">
     <a mat-button routerLink="blog"> Blogs </a>
     <a mat-button routerLink="event"> Events </a>
     <a mat-button routerLink="team"> Teams </a>
+    <!-- <a mat-button routerLink="pwa"> PWA </a> -->
   </div>
   <span class="nav-tool-items" *ngIf="!loggedIn()">
     <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
@@ -17,4 +18,6 @@
   </span>
 </mat-toolbar>
 
+<div class='my-5 p-3'>
 <router-outlet></router-outlet>
+</div>

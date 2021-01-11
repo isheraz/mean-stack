@@ -6,22 +6,10 @@
   cursor: pointer;
 }
 
-/* .example-card {
-  max-width: 400px;
-} */
-
-mat-grid-tile {
-  /* background: lightblue; */
-}
 .blogs {
   width: 80%;
   margin: 0px auto;
 }
-/* .mat_card {
-  min-width: 100%;
-  min-height: 100%;
-  border: 1px solid lightgrey;
-} */
 .content {
   padding: 16px;
 }

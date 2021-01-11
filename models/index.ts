@@ -9,8 +9,8 @@ import TeamModel from './Team';
 import CommentModel from './Comment';
 import EventModel from './Event';
 import UserTeamModel from './UserTeam';
-
 import config from '../config/config.json';
+
 const env = process.env.NODE_ENV || 'development';
 let sequelize;
 if (config[env].use_env_variable) {
@@ -50,9 +50,7 @@ db.UserRole.associate(db);
 db.Permission.associate(db);
 db.RoleHasPermission.associate(db);
 db.UserTeam.associate(db);
-db.Blog.associate(db);
-db.Team.associate(db);
-db.Comment.associate(db);
+// db.User.associate(db);
 const {
   Blog,
   Permission,

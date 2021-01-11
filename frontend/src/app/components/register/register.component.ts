@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder , Validators} from '@angular/forms';
-import { RegisterService } from 'src/app/services/register.service';
+import { RegisterService } from 'src/app/services/RegisterService/register.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
      private _registerService: RegisterService,
-     private fb:FormBuilder, 
+     private fb:FormBuilder,
      private toastr:ToastrService,
      private router: Router,
      private http: HttpClient) { }
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   getRoles(): void {
-    this.http.get<any>(environment.URL + '/api/role') .subscribe(
+    this.http.get<any>(environment.backendRoute + '/role') .subscribe(
      data => {
        this.Roles = data.data;
      },

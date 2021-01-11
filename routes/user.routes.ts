@@ -19,4 +19,6 @@ router.get('/users', allUsers);
 
 router.get('/users', authToken, allUsers);
 
+router.get('/users', authToken, allUsers);
+
 export default router;
