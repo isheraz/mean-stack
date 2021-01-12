@@ -40,7 +40,7 @@
           <td mat-cell *matCellDef='let element'>{{element.createdAt}}</td>
         </ng-container>
 
-        <!-- Actions Column -->
+        <!-- store Column -->
         <ng-container matColumnDef='action'>
           <th mat-header-cell class='pl-5' *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef='let element'><span (click)='onDeleteHandler(element)' style='cursor: pointer'

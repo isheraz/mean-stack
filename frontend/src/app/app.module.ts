@@ -45,6 +45,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { JwtIntercepterService } from './services/Jwt-intercepter/jwt-intercepter.service';
+import { StoreModule } from '@ngrx/store';
+import { TeamReducer } from './store/team.reducers';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -67,6 +70,9 @@ import { JwtIntercepterService } from './services/Jwt-intercepter/jwt-intercepte
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({
+      team : TeamReducer 
+    }),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -89,7 +95,8 @@ import { JwtIntercepterService } from './services/Jwt-intercepter/jwt-intercepte
     MatIconModule,
     MatGridListModule,
     MatBadgeModule,
-    MatListModule
+    MatListModule,
+    StoreModule.forRoot(reducers, { metaReducers })
   ],
   entryComponents: [
     CreateTeamComponent,

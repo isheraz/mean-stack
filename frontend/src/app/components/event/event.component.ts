@@ -13,7 +13,7 @@ import { DeletePopupComponent } from '../popups/delete-popup/delete-popup.compon
 })
 export class EventComponent implements OnInit {
   events = [];
-  displayedColumns = ['id', 'name', 'venue', 'desc', 'date', 'Actions'];
+  displayedColumns = ['id', 'name', 'venue', 'desc', 'date', 'actions'];
 
   constructor(private http: HttpClient, private toast: ToastrService, private dialog: MatDialog) {
   }

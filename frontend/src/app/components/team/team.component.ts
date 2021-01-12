@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TeamService } from '../../services/TeamService/team.service';
-import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTeamComponent } from './create-team/create-team.component';
 import { ViewTeamComponent } from './view-team/view-team.component';
 import { DeletePopupComponent } from '../popups/delete-popup/delete-popup.component';
+
+import {} from '../../app-state.model';
 
 @Component({
   selector: 'app-team',
