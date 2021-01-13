@@ -1,5 +1,5 @@
 import { Team, User } from '../models';
-
+import { deleteTeams, getTeamList, createTeam } from '../services/team.service';
 import defaultResponse from '../utils/defaultResponse';
 import constants from '../utils/constants';
 import responseStatus from '../utils/responseStatus';
@@ -46,12 +46,7 @@ import responseStatus from '../utils/responseStatus';
  */
 export const getTeam = async (_req: any, res: any) => {
   try {
-    const team = await Team.findAll({
-      include: {
-        model: User,
-        as: 'Users',
-      },
-    });
+    const team = await getTeamList();
     if (team) {
       defaultResponse.success(
         constants.DATA_RETRIEVED,
@@ -131,24 +126,21 @@ export const saveTeam = async (req: { body: any }, res: any) => {
             res,
             responseStatus.INVALID_BODY
           );
-    Team.create({ name: requestBody.name }).then((user) => {
-      user.setUsers(requestBody.users).then((userTeam) => {
-        if (user) {
-          defaultResponse.success(
-            constants.DATA_SAVED,
-            user,
-            res,
-            responseStatus.SUCCESS
-          );
-        } else {
-          defaultResponse.error(
-            constants.DATA_NOT_FOUND,
-            res,
-            responseStatus.ERROR
-          );
-        }
-      });
-    });
+    const user = await createTeam(requestBody);
+    if (user) {
+      defaultResponse.success(
+        constants.DATA_SAVED,
+        user,
+        res,
+        responseStatus.SUCCESS
+      );
+    } else {
+      defaultResponse.error(
+        constants.DATA_NOT_FOUND,
+        res,
+        responseStatus.ERROR
+      );
+    }
   } catch (exception) {
     defaultResponse.error(
       { message: exception.message },
@@ -297,7 +289,7 @@ export const deleteTeam = async (req: { params: { id: any } }, res: any) => {
           responseStatus.INVALID_BODY
         );
   try {
-    const team = await Team.destroy({ where: { id } });
+    const team = await deleteTeams(id);
     if (team) {
       defaultResponse.success(
         constants.DATA_DELETED,

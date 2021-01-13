@@ -1,8 +1,8 @@
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 import { TeamModel } from './team.model';
 
 export enum TeamSectionType {
-  GET_TEAM = '[TEAM MODULE] get Team',
+  GET_TEAM ='[TEAM MODULE] get Team',
 }
 
 export class GetTeamAction implements Action {
